@@ -7,7 +7,7 @@ Este repositorio contiene la landing page y la configuración del servidor Apach
 Para levantar el servidor web localmente, necesitas tener Docker instalado. Ejecuta el siguiente comando en la raíz del proyecto:
 
 ```bash
-docker-compose up -d
+docker compose -f automation/docker-compose.yml up -d
 ```
 
 La página estará disponible en [http://localhost:8080/](http://localhost:8080/).
@@ -16,8 +16,7 @@ La página estará disponible en [http://localhost:8080/](http://localhost:8080/
 
 - `porta_cuadernos_de_identidad_baionesa.html`: El archivo HTML principal.
 - `.htaccess`: Reglas de redirección de Apache para que todas las peticiones apunten al HTML.
-- `Dockerfile` / `docker-compose.yml`: Configuración del servidor.
-- `screenshot.js`: Script de Puppeteer que genera capturas de pantalla automáticas.
+- `automation/`: Carpeta que contiene toda la configuración del servidor (`Dockerfile`, `docker-compose.yml`) y el script de capturas de pantalla (`screenshot.js`, `package.json`).
 
 ## Sistema de Capturas Automatizadas
 

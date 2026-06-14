@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Start Apache server
-        run: docker compose up -d
+        run: docker compose -f automation/docker-compose.yml up -d
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -25,9 +25,11 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
+        working-directory: ./automation
         run: npm install
 
       - name: Generate Screenshot
+        working-directory: ./automation
         run: npm run screenshot
 
       - name: Commit and push changes
