@@ -21,6 +21,27 @@ const puppeteer = require('puppeteer');
       retries--;
     }
   }
+  // Auto-scroll to trigger IntersectionObserver animations
+  await page.evaluate(async () => {
+    await new Promise((resolve) => {
+      let totalHeight = 0;
+      const distance = 100;
+      const timer = setInterval(() => {
+        const scrollHeight = document.body.scrollHeight;
+        window.scrollBy(0, distance);
+        totalHeight += distance;
+        if (totalHeight >= scrollHeight - window.innerHeight) {
+          clearInterval(timer);
+          // Scroll back to top to ensure fixed elements reset if needed
+          window.scrollTo(0, 0);
+          resolve();
+        }
+      }, 100);
+    });
+  });
+
+  // Wait a moment for any final CSS transitions to complete
+  await new Promise(r => setTimeout(r, 1500));
 
   // Take the screenshot
   await page.screenshot({ path: '../screenshot.png', fullPage: true });
