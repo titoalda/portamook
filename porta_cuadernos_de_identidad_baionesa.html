@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PORTA | Adquirir Volumen Fundacional</title>
+    
+    <!-- Google Fonts: League Spartan (Titulares) y Lato (Cuerpo) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=League+Spartan:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-atlantico': '#1a365d', 
+                        'granito': '#718096',       
+                        'arena': '#d4c3a3',         
+                        'papel': '#faf9f6',         
+                    },
+                    fontFamily: {
+                        'spartan': ['"League Spartan"', 'sans-serif'],
+                        'lato': ['Lato', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        widest: '.25em',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #faf9f6;
+            color: #1a202c;
+        }
+        
+        /* Animaciones para la entrada de elementos */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slow-transition {
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Textura sutil emulando el papel impreso */
+        .paper-texture {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.04;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Estilo para los inputs del formulario de compra */
+        .editorial-input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #718096;
+            padding: 0.5rem 0;
+            width: 100%;
+            font-family: 'Lato', sans-serif;
+            color: #1a365d;
+            transition: border-color 0.3s ease;
+        }
+        .editorial-input:focus {
+            outline: none;
+            border-bottom-color: #1a365d;
+        }
+        .editorial-input::placeholder {
+            color: #a0aec0;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body class="font-lato antialiased selection:bg-azul-atlantico selection:text-white flex flex-col min-h-screen">
+
+    <div class="paper-texture"></div>
+
+    <nav class="fixed w-full top-0 bg-papel/80 backdrop-blur-md z-40 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="font-spartan font-bold text-2xl tracking-widest text-azul-atlantico">
+                PORTA
+            </div>
+            <div>
+                <a href="#compra" class="text-azul-atlantico font-spartan text-xs tracking-widest hover:text-arena slow-transition uppercase">
+                    Adquirir
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-24">
+        <div class="max-w-6xl mx-auto px-6">
+            
+            <!-- Hero / Presentación del Objeto -->
+            <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+                <div class="observe-me fade-in-up">
+                    <h2 class="font-spartan text-xs tracking-widest text-granito uppercase mb-4">Cuadernos de Identidad Baionesa</h2>
+                    <h1 class="font-spartan text-5xl md:text-7xl font-bold text-azul-atlantico leading-tight mb-8">
+                        Un espacio<br>de resistencia<br>matérica.
+                    </h1>
+                    <p class="font-lato text-xl text-gray-600 font-light leading-relaxed mb-8">
+                        El volumen fundacional de PORTA es una colección monográfica independiente concebida bajo los ritmos de la corriente <em>Slow Media</em>.
+                    </p>
+                    <p class="font-lato text-gray-600 font-light leading-relaxed mb-10">
+                        Un archivo permanente bilingüe diseñado para explorar a fuego lento la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona. Impreso con rigor editorial para habitar la contemplación.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <a href="#compra" class="bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 hover:bg-azul-atlantico/90 slow-transition text-center uppercase">
+                            Comprar Volumen
+                        </a>
+                        <a href="#autora" class="border border-granito text-granito font-spartan text-xs tracking-widest px-8 py-4 hover:border-azul-atlantico hover:text-azul-atlantico slow-transition text-center uppercase">
+                            Sobre la Autora
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Mockup de la revista -->
+                <div class="observe-me fade-in-up delay-200 relative">
+                    <div class="aspect-[3/4] bg-white shadow-2xl relative overflow-hidden flex items-center justify-center p-8 border border-gray-100">
+                        <!-- Portada simulada -->
+                        <div class="w-full h-full border border-gray-200 flex flex-col justify-between p-8 relative">
+                            <h2 class="font-spartan font-bold text-4xl tracking-widest text-azul-atlantico text-center">PORTA</h2>
+                            <div class="flex-grow flex items-center justify-center">
+                                <img src="https://placehold.co/400x400/faf9f6/1a365d?text=Ilustración+Portada" alt="Portada de PORTA" class="w-3/4 opacity-80 mix-blend-multiply">
+                            </div>
+                            <div class="text-center font-spartan text-xs tracking-widest text-granito">
+                                VOLUMEN FUNDACIONAL
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decoración sutil -->
+                    <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-arena/20 z-[-1] rounded-full blur-2xl"></div>
+                </div>
+            </section>
+
+            <section class="mb-32 observe-me fade-in-up border-y border-gray-200 py-16">
+                <h3 class="font-spartan text-xl text-azul-atlantico text-center mb-12 uppercase tracking-widest">Especificaciones de la Edición</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-2xl text-arena mb-2">120</div>
+                        <div class="font-spartan text-xs tracking-widest text-granito uppercase">Páginas impresas</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl text-arena mb-2">FSC</div>
+                        <div class="font-spartan text-xs tracking-widest text-granito uppercase">Papel Sostenible Mate</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl text-arena mb-2">ES/GL</div>
+                        <div class="font-spartan text-xs tracking-widest text-granito uppercase">Edición Bilingüe</div>
+                    </div>
+                    <div>
+                        <div class="text-2xl text-arena mb-2">2026</div>
+                        <div class="font-spartan text-xs tracking-widest text-granito uppercase">Año de Edición</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="autora" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
+                <div class="md:col-span-5 observe-me fade-in-up">
+                    <img src="https://placehold.co/800x1000/d4c3a3/1a365d?text=Retrato+Aldara" alt="Aldara Álvarez González" class="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 slow-transition duration-1000">
+                </div>
+                <div class="md:col-span-7 observe-me fade-in-up delay-200 lg:pl-12">
+                    <h3 class="font-spartan text-xs tracking-widest text-granito mb-4 uppercase">Sobre la Autora</h3>
+                    <h2 class="font-spartan text-4xl text-azul-atlantico font-semibold mb-6">Aldara Álvarez González</h2>
+                    <p class="font-spartan text-sm tracking-widest text-arena mb-8 uppercase">Edición, Curaduría y Dirección de Arte</p>
+                    
+                    <div class="space-y-6 text-gray-600 font-light leading-relaxed text-lg">
+                        <p>
+                            Diseñadora editorial y curadora visual. Su trabajo se inscribe dentro de la corriente del <em>Diseño Total</em>, una metodología donde la investigación historiográfica, la redacción, la ilustración y la arquitectura tipográfica convergen bajo una única visión de autor.
+                        </p>
+                        <p>
+                            Con <strong>PORTA</strong>, Aldara propone un manifiesto contra la inmediatez digital. El proyecto nace de la necesidad imperiosa de documentar la herencia inmaterial y pétrea de su tierra, Baiona, alejándose de los ritmos de consumo turístico masivo para abrazar la contemplación.
+                        </p>
+                        <p class="italic text-granito">
+                            "Nombrar el territorio con las palabras que lo esculpieron es el primer acto de soberanía cultural."
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="compra" class="bg-white p-8 md:p-16 border border-gray-200 observe-me fade-in-up relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-papel rounded-bl-full z-0 opacity-50"></div>
+                
+                <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <h2 class="font-spartan text-3xl text-azul-atlantico font-semibold mb-4">Adquirir PORTA</h2>
+                        <p class="text-gray-600 font-light mb-8 leading-relaxed">
+                            El Volumen Fundacional es una tirada limitada de carácter independiente. Apoya este proyecto editorial adquiriendo tu ejemplar físico.
+                        </p>
+                        
+                        <div class="mb-10">
+                            <span class="block font-spartan text-4xl text-azul-atlantico font-light mb-2">24,00 €</span>
+                            <span class="text-xs text-granito uppercase tracking-widest">+ Gastos de envío</span>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h4 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Puntos de Venta Físicos</h4>
+                            <ul class="text-gray-600 font-light space-y-2">
+                                <li class="flex items-start">
+                                    <span class="text-arena mr-2 mt-1">✦</span>
+                                    <span>Librería Época, Baiona</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-arena mr-2 mt-1">✦</span>
+                                    <span>Espacio de Arte A Erizana, Baiona</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Formulario de pedido editorial -->
+                    <div class="bg-papel p-8">
+                        <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico mb-8 uppercase">Solicitar Envío Postal</h3>
+                        <form onsubmit="event.preventDefault(); showMessage();" class="space-y-6">
+                            <div>
+                                <input type="text" placeholder="Nombre completo" required class="editorial-input">
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Correo electrónico" required class="editorial-input">
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Dirección de envío completa" required class="editorial-input">
+                            </div>
+                            <div>
+                                <input type="number" min="1" max="10" placeholder="Cantidad de ejemplares" required class="editorial-input">
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 mt-8 hover:bg-azul-atlantico/90 slow-transition uppercase text-center">
+                                Proceder al Pago Seguro
+                            </button>
+                            
+                            <p id="success-msg" class="hidden text-green-700 text-sm mt-4 text-center font-light">
+                                Gracias. Te redirigiremos a la pasarela de pago en breve.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-auto py-12">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
+            <div>
+                <div class="font-spartan font-bold text-xl tracking-widest text-azul-atlantico mb-2">
+                    PORTA
+                </div>
+                <div class="font-lato text-xs text-granito uppercase tracking-widest">
+                    Cuadernos de Identidad Baionesa
+                </div>
+            </div>
+            
+            <div class="font-spartan text-xs tracking-widest text-azul-atlantico flex flex-col md:flex-row gap-4 md:gap-8">
+                <a href="mailto:info@portamook.com" class="hover:text-arena slow-transition">INFO@PORTAMOOK.COM</a>
+                <a href="#" class="hover:text-arena slow-transition">INSTAGRAM: @PORTA_MOOK</a>
+            </div>
+
+            <div class="font-lato text-xs text-gray-400 font-light">
+                © 2026 Aldara Álvarez González.<br>Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animaciones al hacer scroll (Intersection Observer)
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Solo animar la primera vez
+                    }
+                });
+            }, observerOptions);
+
+            const targets = document.querySelectorAll('.observe-me');
+            targets.forEach(target => {
+                observer.observe(target);
+            });
+        });
+
+        // Simulación de envío del formulario
+        function showMessage() {
+            const btn = document.querySelector('button[type="submit"]');
+            const msg = document.getElementById('success-msg');
+            
+            btn.innerHTML = "Procesando...";
+            btn.classList.add('opacity-75');
+            
+            setTimeout(() => {
+                msg.classList.remove('hidden');
+                btn.innerHTML = "Completado";
+                btn.style.backgroundColor = "#d4c3a3"; // Color arena
+                btn.style.color = "#1a365d";
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
