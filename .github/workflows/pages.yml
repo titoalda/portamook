@@ -30,6 +30,7 @@ jobs:
           cp porta_cuadernos_de_identidad_baionesa.html _site/index.html
           # Copiamos otros posibles recursos o imágenes estáticas si los hay
           cp screenshot.png _site/ || true
+          cp -r assets _site/ || true
           
       - name: Setup Pages
         uses: actions/configure-pages@v5
