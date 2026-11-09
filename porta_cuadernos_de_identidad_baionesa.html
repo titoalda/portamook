@@ -9,6 +9,9 @@
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Aldara Álvarez González">
     <link rel="canonical" href="https://portamook.com/">
+    <link rel="alternate" hreflang="es" href="https://portamook.com/">
+    <link rel="alternate" hreflang="gl" href="https://portamook.com/gl/">
+    <link rel="alternate" hreflang="x-default" href="https://portamook.com/">
 
     <!-- Iconos -->
     <link rel="icon" href="assets/favicon.ico" sizes="any">
@@ -51,6 +54,7 @@
                 "url": "https://portamook.com/",
                 "logo": "https://portamook.com/assets/apple-touch-icon.png",
                 "email": "info@portamook.com",
+                "address": { "@type": "PostalAddress", "streetAddress": "Avenida Monterreal 1", "addressLocality": "Baiona", "addressRegion": "Pontevedra", "addressCountry": "ES" },
                 "founder": { "@id": "https://portamook.com/#autora" },
                 "sameAs": ["https://www.instagram.com/porta_mook/"]
             },
@@ -157,6 +161,9 @@
             outline-offset: 3px;
         }
 
+        /* Fondo del visor de imágenes */
+        dialog#visor::backdrop { background: rgba(10, 20, 35, 0.9); }
+
         /* Respeta a quien prefiere menos movimiento */
         @media (prefers-reduced-motion: reduce) {
             .fade-in-up, .slow-transition { transition: none !important; }
@@ -176,7 +183,8 @@
             <div>
                 <a href="./" aria-label="PORTA, inicio"><img src="assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" class="h-8 w-auto"></a>
             </div>
-            <div>
+            <div class="flex items-center gap-6">
+                <a href="gl/" hreflang="gl" lang="gl" class="text-granito-texto font-spartan text-xs tracking-widest hover:text-azul-atlantico slow-transition uppercase">Galego</a>
                 <a href="#compra" class="text-azul-atlantico font-spartan text-xs tracking-widest hover:text-arena-oscuro slow-transition uppercase">
                     Reservar
                 </a>
@@ -232,12 +240,12 @@
             <section class="mb-32 observe-me fade-in-up">
                 <h2 class="font-spartan text-xs tracking-widest text-granito-texto uppercase mb-8 text-center">Algunas páginas del volumen</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="assets/images/porta-interior-01.webp" alt="Doble página interior de Porta: mapa ilustrado de la bahía de Baiona" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-foto-01.webp" alt="Fotografía editorial de Porta: Monasterio de Baiona" width="900" height="602" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-ilustracion-02.webp" alt="Ilustración a acuarela de Porta" width="900" height="1116" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-editorial-03.webp" alt="Maquetación editorial de Porta" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-interior-05.webp" alt="Doble página interior de Porta: monumento Encuentro entre Dos Mundos" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-foto-06.webp" alt="Fotografía editorial de Porta: petroglifos del Val Miñor" width="900" height="747" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full cursor-zoom-in"><img src="assets/images/porta-interior-01.webp" alt="Doble página interior de Porta: mapa ilustrado de la bahía de Baiona" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full cursor-zoom-in"><img src="assets/images/porta-foto-01.webp" alt="Fotografía editorial de Porta: Monasterio de Baiona" width="900" height="602" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full cursor-zoom-in"><img src="assets/images/porta-ilustracion-02.webp" alt="Ilustración a acuarela de Porta" width="900" height="1116" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full cursor-zoom-in"><img src="assets/images/porta-editorial-03.webp" alt="Maquetación editorial de Porta" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full cursor-zoom-in"><img src="assets/images/porta-interior-05.webp" alt="Doble página interior de Porta: monumento Encuentro entre Dos Mundos" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full cursor-zoom-in"><img src="assets/images/porta-foto-06.webp" alt="Fotografía editorial de Porta: petroglifos del Val Miñor" width="900" height="747" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
                 </div>
             </section>
 
@@ -370,6 +378,19 @@
         </div>
     </footer>
 
+    <!-- Visor para ampliar las imágenes de la galería -->
+    <dialog id="visor" aria-label="Imagen ampliada" class="bg-transparent p-0 max-w-none max-h-none w-full h-full">
+        <div id="visor-fondo" class="relative w-full h-full flex items-center justify-center">
+            <figure class="flex flex-col items-center">
+                <img id="visor-img" src="" alt="" class="max-w-[92vw] max-h-[80vh] object-contain bg-white">
+                <figcaption id="visor-pie" class="mt-3 max-w-xl px-4 text-center text-xs font-light text-white"></figcaption>
+            </figure>
+            <button type="button" id="visor-cerrar" aria-label="Cerrar" class="absolute top-4 right-4 px-3 py-1 text-4xl leading-none text-white">&times;</button>
+            <button type="button" id="visor-ant" aria-label="Anterior" class="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 px-3 py-2 text-4xl leading-none text-white">&#8249;</button>
+            <button type="button" id="visor-sig" aria-label="Siguiente" class="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 px-3 py-2 text-4xl leading-none text-white">&#8250;</button>
+        </div>
+    </dialog>
+
     <script>
         // Animaciones al hacer scroll (Intersection Observer)
         document.addEventListener("DOMContentLoaded", function() {
@@ -393,6 +414,37 @@
                 observer.observe(target);
             });
         });
+
+
+        // Visor para ampliar las imágenes de la galería
+        (function () {
+            const visor = document.getElementById('visor');
+            if (!visor || !visor.showModal) return;
+            const miniaturas = Array.from(document.querySelectorAll('[data-zoom]'));
+            const img = document.getElementById('visor-img');
+            const pie = document.getElementById('visor-pie');
+            let actual = 0;
+            function mostrar(i) {
+                actual = (i + miniaturas.length) % miniaturas.length;
+                const m = miniaturas[actual].querySelector('img');
+                img.src = m.currentSrc || m.src;
+                img.alt = m.alt;
+                pie.textContent = m.alt;
+            }
+            miniaturas.forEach(function (b, i) {
+                b.addEventListener('click', function () { mostrar(i); visor.showModal(); });
+            });
+            document.getElementById('visor-cerrar').addEventListener('click', function () { visor.close(); });
+            document.getElementById('visor-ant').addEventListener('click', function () { mostrar(actual - 1); });
+            document.getElementById('visor-sig').addEventListener('click', function () { mostrar(actual + 1); });
+            visor.addEventListener('click', function (e) {
+                if (e.target === visor || e.target.id === 'visor-fondo') visor.close();
+            });
+            visor.addEventListener('keydown', function (e) {
+                if (e.key === 'ArrowRight') mostrar(actual + 1);
+                if (e.key === 'ArrowLeft') mostrar(actual - 1);
+            });
+        })();
 
         // Envío real del pedido por correo mediante Web3Forms
         // (la clave de acceso es pública por diseño; solo permite enviar formularios)

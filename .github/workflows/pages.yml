@@ -37,7 +37,7 @@ jobs:
           mkdir _site
           cp porta_cuadernos_de_identidad_baionesa.html _site/index.html
           cp robots.txt sitemap.xml llms.txt privacidad.html aviso-legal.html 404.html _site/
-          cp -r assets _site/
+          cp -r assets gl _site/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

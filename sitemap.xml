@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://portamook.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portamook.com/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://portamook.com/gl/"/>
     <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -9,6 +11,14 @@
       <image:loc>https://portamook.com/assets/og-image.jpg</image:loc>
       <image:title>Cubierta del volumen fundacional de PORTA</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://portamook.com/gl/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portamook.com/"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://portamook.com/gl/"/>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://portamook.com/privacidad.html</loc>

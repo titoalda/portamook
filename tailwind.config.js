@@ -1,6 +1,6 @@
 /** Configuración de Tailwind (se compila en los workflows de GitHub Actions) */
 module.exports = {
-  content: ['./*.html'],
+  content: ['./*.html', './gl/*.html'],
   theme: {
     extend: {
       colors: {
