@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PORTA | Cuadernos de Identidad Baionesa · Volumen Fundacional</title>
-    <meta name="description" content="PORTA, volumen fundacional de los Cuadernos de Identidad Baionesa: 120 páginas en español y gallego sobre la historia, la mitología y la memoria de la Real Villa de Baiona. Primera edición en preparación: preventa abierta, sin pago por adelantado.">
+    <meta name="description" content="PORTA, Cuadernos de Identidad Baionesa: volumen de 120 páginas en español y gallego sobre la historia y la memoria de Baiona. Preventa abierta, sin pago.">
     <meta name="theme-color" content="#06478d">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="author" content="Aldara Álvarez González">
     <link rel="canonical" href="https://portamook.com/">
 
     <!-- Iconos -->
@@ -23,6 +25,7 @@
     <meta property="og:image" content="https://portamook.com/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:alt" content="Cubierta del volumen fundacional de PORTA, Cuadernos de Identidad Baionesa">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="PORTA | Cuadernos de Identidad Baionesa">
@@ -33,27 +36,53 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "PORTA. Cuadernos de Identidad Baionesa. Volumen fundacional",
-        "description": "Volumen de 120 páginas, tapa dura con slipcase, en español y gallego, sobre la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona. Primera edición, 2026.",
-        "image": "https://portamook.com/assets/og-image.jpg",
-        "url": "https://portamook.com/",
-        "brand": { "@type": "Brand", "name": "PORTA" },
-        "author": { "@type": "Person", "name": "Aldara Álvarez González" },
-        "offers": {
-            "@type": "Offer",
-            "price": "40.00",
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/PreOrder",
-            "url": "https://portamook.com/#compra"
-        }
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://portamook.com/#web",
+                "url": "https://portamook.com/",
+                "name": "PORTA | Cuadernos de Identidad Baionesa",
+                "inLanguage": "es"
+            },
+            {
+                "@type": "Organization",
+                "@id": "https://portamook.com/#org",
+                "name": "PORTA",
+                "url": "https://portamook.com/",
+                "logo": "https://portamook.com/assets/apple-touch-icon.png",
+                "email": "info@portamook.com",
+                "founder": { "@id": "https://portamook.com/#autora" },
+                "sameAs": ["https://www.instagram.com/porta_mook/"]
+            },
+            {
+                "@type": "Person",
+                "@id": "https://portamook.com/#autora",
+                "name": "Aldara Álvarez González",
+                "jobTitle": "Diseñadora editorial y curadora visual"
+            },
+            {
+                "@type": "Product",
+                "name": "PORTA. Cuadernos de Identidad Baionesa. Volumen fundacional",
+                "description": "Volumen de 120 páginas, tapa dura con slipcase, en español y gallego, sobre la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona. Primera edición, 2026.",
+                "image": "https://portamook.com/assets/og-image.jpg",
+                "url": "https://portamook.com/",
+                "brand": { "@id": "https://portamook.com/#org" },
+                "author": { "@id": "https://portamook.com/#autora" },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "40.00",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/PreOrder",
+                    "url": "https://portamook.com/#compra"
+                }
+            }
+        ]
     }
     </script>
 
-    <!-- Google Fonts: League Spartan (Titulares) y Lato (Cuerpo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=League+Spartan:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Fuentes alojadas en el propio sitio (@font-face en assets/css/tailwind.css) -->
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/lato-normal-300.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/league-spartan-normal-800.woff2" crossorigin>
 
     <!-- Imagen principal: se descarga cuanto antes -->
     <link rel="preload" as="image" href="assets/images/porta-cover.webp" type="image/webp">
@@ -116,6 +145,12 @@
             font-weight: 300;
         }
 
+        /* Foco visible para quien navega con teclado */
+        a:focus-visible, button:focus-visible, .editorial-input:focus-visible {
+            outline: 2px solid #06478d;
+            outline-offset: 3px;
+        }
+
         /* Respeta a quien prefiere menos movimiento */
         @media (prefers-reduced-motion: reduce) {
             .fade-in-up, .slow-transition { transition: none !important; }
@@ -126,9 +161,11 @@
 </head>
 <body class="font-lato antialiased selection:bg-azul-atlantico selection:text-white flex flex-col min-h-screen">
 
+    <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-azul-atlantico focus:px-4 focus:py-2 font-spartan text-xs tracking-widest uppercase">Saltar al contenido</a>
+
     <div class="paper-texture"></div>
 
-    <nav class="fixed w-full top-0 bg-papel/80 backdrop-blur-md z-40 border-b border-gray-200">
+    <nav aria-label="Principal" class="fixed w-full top-0 bg-papel/80 backdrop-blur-md z-40 border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <div>
                 <img src="assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" class="h-8 w-auto">
@@ -141,14 +178,14 @@
         </div>
     </nav>
 
-    <main class="flex-grow pt-32 pb-24">
+    <main id="contenido" class="flex-grow pt-32 pb-24">
         <div class="max-w-6xl mx-auto px-6">
             
             <!-- Hero / Presentación del Objeto -->
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
                 <div class="observe-me fade-in-up">
-                    <p class="inline-block font-spartan text-[0.65rem] tracking-widest uppercase text-arena border border-arena/60 px-3 py-1 mb-6">Edición en preparación · Preventa abierta</p>
-                    <h2 class="font-spartan text-xs tracking-widest text-granito uppercase mb-4">Cuadernos de Identidad Baionesa</h2>
+                    <p class="inline-block font-spartan text-[0.65rem] tracking-widest uppercase text-arena-oscuro border border-arena/60 px-3 py-1 mb-6">Edición en preparación · Preventa abierta</p>
+                    <p class="font-spartan text-xs tracking-widest text-granito-texto uppercase mb-4">Cuadernos de Identidad Baionesa</p>
                     <h1 class="font-spartan text-5xl md:text-7xl font-bold text-azul-atlantico leading-tight mb-8">
                         Un espacio<br>de resistencia<br>matérica.
                     </h1>
@@ -162,7 +199,7 @@
                         <a href="#compra" class="bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 hover:bg-azul-atlantico/90 slow-transition text-center uppercase">
                             Reservar ejemplar
                         </a>
-                        <a href="#autora" class="border border-granito text-granito font-spartan text-xs tracking-widest px-8 py-4 hover:border-azul-atlantico hover:text-azul-atlantico slow-transition text-center uppercase">
+                        <a href="#autora" class="border border-granito text-granito-texto font-spartan text-xs tracking-widest px-8 py-4 hover:border-azul-atlantico hover:text-azul-atlantico slow-transition text-center uppercase">
                             Sobre la Autora
                         </a>
                     </div>
@@ -179,21 +216,21 @@
             </section>
 
             <section class="mb-32 observe-me fade-in-up border-y border-gray-200 py-16">
-                <h3 class="font-spartan text-xl text-azul-atlantico text-center mb-8 uppercase tracking-widest">La Edición</h3>
+                <h2 class="font-spartan text-xl text-azul-atlantico text-center mb-8 uppercase tracking-widest">La Edición</h2>
                 <p class="max-w-2xl mx-auto text-center text-gray-600 font-light leading-relaxed text-lg">
                     Un volumen de 120 páginas, impreso en papel FSC de acabado mate y encuadernado en tapa dura con slipcase. Se edita en español y gallego, a doble columna, cuidando que el texto respire. Primera edición, Baiona, 2026, actualmente en preparación.
                 </p>
             </section>
 
             <section class="mb-32 observe-me fade-in-up">
-                <h3 class="font-spartan text-xs tracking-widest text-granito uppercase mb-8 text-center">Algunas páginas del volumen</h3>
+                <h2 class="font-spartan text-xs tracking-widest text-granito-texto uppercase mb-8 text-center">Algunas páginas del volumen</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="assets/images/porta-interior-01.webp" alt="Doble página interior de Porta: mapa ilustrado de la bahía de Baiona" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-foto-01.webp" alt="Fotografía editorial de Porta: Monasterio de Baiona" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-ilustracion-02.webp" alt="Ilustración a acuarela de Porta" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-editorial-03.webp" alt="Maquetación editorial de Porta" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-interior-05.webp" alt="Doble página interior de Porta: monumento Encuentro entre Dos Mundos" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-foto-06.webp" alt="Fotografía editorial de Porta: petroglifos del Val Miñor" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-interior-01.webp" alt="Doble página interior de Porta: mapa ilustrado de la bahía de Baiona" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-foto-01.webp" alt="Fotografía editorial de Porta: Monasterio de Baiona" width="900" height="602" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-ilustracion-02.webp" alt="Ilustración a acuarela de Porta" width="900" height="1116" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-editorial-03.webp" alt="Maquetación editorial de Porta" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-interior-05.webp" alt="Doble página interior de Porta: monumento Encuentro entre Dos Mundos" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-foto-06.webp" alt="Fotografía editorial de Porta: petroglifos del Val Miñor" width="900" height="747" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
                 </div>
             </section>
 
@@ -202,9 +239,9 @@
                     <img src="assets/images/author2.webp" alt="Aldara Álvarez González" width="900" height="900" loading="lazy" class="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 slow-transition duration-1000">
                 </div>
                 <div class="md:col-span-7 observe-me fade-in-up delay-200 lg:pl-12">
-                    <h3 class="font-spartan text-xs tracking-widest text-granito mb-4 uppercase">Sobre la Autora</h3>
+                    <p class="font-spartan text-xs tracking-widest text-granito-texto mb-4 uppercase">Sobre la Autora</p>
                     <h2 class="font-spartan text-4xl text-azul-atlantico font-semibold mb-6">Aldara Álvarez González</h2>
-                    <p class="font-spartan text-sm tracking-widest text-arena mb-8 uppercase">Edición, Curaduría y Dirección de Arte</p>
+                    <p class="font-spartan text-sm tracking-widest text-arena-oscuro mb-8 uppercase">Edición, Curaduría y Dirección de Arte</p>
                     
                     <div class="space-y-6 text-gray-600 font-light leading-relaxed text-lg">
                         <p>
@@ -213,7 +250,7 @@
                         <p>
                             Con <strong>PORTA</strong>, Aldara propone un manifiesto contra la inmediatez digital. El proyecto nace de la necesidad imperiosa de documentar la herencia inmaterial y pétrea de su tierra, Baiona, alejándose de los ritmos de consumo turístico masivo para abrazar la contemplación.
                         </p>
-                        <p class="italic text-granito">
+                        <p class="italic text-granito-texto">
                             "Nombrar el territorio con las palabras que lo esculpieron es el primer acto de soberanía cultural."
                         </p>
                     </div>
@@ -229,24 +266,25 @@
                         <p class="text-gray-600 font-light mb-8 leading-relaxed">
                             El Volumen Fundacional es una tirada limitada de carácter independiente. Apoya este proyecto editorial reservando tu ejemplar físico.
                         </p>
-                        <p class="text-sm text-granito font-light mb-8 leading-relaxed border-l-2 border-arena pl-4">
+                        <p class="text-sm text-granito-texto font-light mb-8 leading-relaxed border-l-2 border-arena pl-4">
                             La edición sigue en preparación y todavía no existen ejemplares físicos. Por ahora abrimos una preventa: reservar no supone ningún pago, solo anotamos tu ejemplar para avisarte cuando esté listo.
                         </p>
                         
                         <div class="mb-10">
                             <span class="block font-spartan text-4xl text-azul-atlantico font-light mb-2">40,00 €</span>
-                            <span class="text-xs text-granito uppercase tracking-widest">Precio previsto + gastos de envío</span>
+                            <span class="block text-xs text-granito-texto uppercase tracking-widest">El libro · precio provisional</span>
+                            <span class="block text-xs text-granito-texto font-light mt-3">Los gastos de envío se indican aparte al confirmar tu reserva.</span>
                         </div>
 
                         <div class="space-y-4">
-                            <h4 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Puntos de Venta Físicos <span class="normal-case tracking-normal text-granito text-xs">(cuando la edición esté publicada)</span></h4>
+                            <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Puntos de Venta Físicos <span class="normal-case tracking-normal text-granito-texto text-xs">(cuando la edición esté publicada)</span></h3>
                             <ul class="text-gray-600 font-light space-y-2">
                                 <li class="flex items-start">
-                                    <span class="text-arena mr-2 mt-1">✦</span>
+                                    <span class="text-arena-oscuro mr-2 mt-1">✦</span>
                                     <span>Librería Época, Baiona</span>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="text-arena mr-2 mt-1">✦</span>
+                                    <span class="text-arena-oscuro mr-2 mt-1">✦</span>
                                     <span>Espacio de Arte A Erizana, Baiona</span>
                                 </li>
                             </ul>
@@ -270,6 +308,11 @@
                                 <input type="number" name="ejemplares" inputmode="numeric" aria-label="Cantidad de ejemplares" min="1" max="10" placeholder="Cantidad de ejemplares" required class="editorial-input">
                             </div>
 
+                            <label class="flex items-start gap-3 text-xs text-granito-texto font-light leading-relaxed">
+                                <input type="checkbox" name="privacidad" required class="mt-1">
+                                <span>He leído y acepto la <a href="privacidad.html" class="underline hover:text-azul-atlantico">política de privacidad</a>.</span>
+                            </label>
+
                             <!-- Trampa para bots: las personas no lo ven -->
                             <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off" style="display:none">
 
@@ -277,7 +320,7 @@
                                 Reservar mi ejemplar
                             </button>
 
-                            <p class="text-xs text-granito font-light leading-relaxed text-center">
+                            <p class="text-xs text-granito-texto font-light leading-relaxed text-center">
                                 No se cobra nada ahora. Anotamos tu reserva y, cuando la edición esté lista, te escribiremos al correo indicado con el importe final y las instrucciones de pago. Podrás confirmar o cancelar sin compromiso.
                             </p>
 
@@ -299,17 +342,18 @@
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
             <div>
                 <img src="assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" loading="lazy" class="h-7 w-auto mb-2 mx-auto md:mx-0">
-                <div class="font-lato text-xs text-granito uppercase tracking-widest">
+                <div class="font-lato text-xs text-granito-texto uppercase tracking-widest">
                     Cuadernos de Identidad Baionesa
                 </div>
             </div>
             
             <div class="font-spartan text-xs tracking-widest text-azul-atlantico flex flex-col md:flex-row gap-4 md:gap-8">
                 <a href="mailto:info@portamook.com" class="hover:text-arena slow-transition">INFO@PORTAMOOK.COM</a>
+                <a href="privacidad.html" class="hover:text-arena slow-transition">PRIVACIDAD</a>
                 <a href="https://www.instagram.com/porta_mook/" target="_blank" rel="noopener" class="hover:text-arena slow-transition">INSTAGRAM: @PORTA_MOOK</a>
             </div>
 
-            <div class="font-lato text-xs text-gray-400 font-light">
+            <div class="font-lato text-xs text-gray-500 font-light">
                 © 2026 Aldara Álvarez González.<br>Todos los derechos reservados.
             </div>
         </div>
@@ -364,6 +408,7 @@
                 email: form.email.value.trim(),
                 direccion: form.direccion.value.trim(),
                 ejemplares: form.ejemplares.value,
+                privacidad_aceptada: form.privacidad.checked ? "sí" : "no",
                 botcheck: form.botcheck.checked
             };
 

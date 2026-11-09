@@ -1,6 +1,6 @@
 /** Configuración de Tailwind (se compila en los workflows de GitHub Actions) */
 module.exports = {
-  content: ['./porta_cuadernos_de_identidad_baionesa.html'],
+  content: ['./*.html'],
   theme: {
     extend: {
       colors: {
@@ -8,6 +8,9 @@ module.exports = {
         'granito': '#7c7c7c',
         'arena': '#d7af5f',
         'papel': '#faf9f6',
+        // Variantes mas oscuras solo para texto (contraste AA sobre papel/blanco)
+        'granito-texto': '#5c5c5c',
+        'arena-oscuro': '#8a6a1f',
       },
       fontFamily: {
         'spartan': ['"League Spartan"', 'sans-serif'],
