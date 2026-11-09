@@ -3,37 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PORTA | Adquirir Volumen Fundacional</title>
-    
+    <title>PORTA | Cuadernos de Identidad Baionesa · Volumen Fundacional</title>
+    <meta name="description" content="PORTA, volumen fundacional de los Cuadernos de Identidad Baionesa: 120 páginas en español y gallego sobre la historia, la mitología y la memoria de la Real Villa de Baiona. Tirada limitada, 40 €.">
+    <meta name="theme-color" content="#06478d">
+    <link rel="canonical" href="https://portamook.com/">
+
+    <!-- Iconos -->
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+    <!-- Open Graph / Twitter: vista previa al compartir el enlace -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="PORTA">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:title" content="PORTA | Cuadernos de Identidad Baionesa">
+    <meta property="og:description" content="Volumen fundacional: 120 páginas en español y gallego sobre la historia y la memoria de la Real Villa de Baiona. Tirada limitada.">
+    <meta property="og:url" content="https://portamook.com/">
+    <meta property="og:image" content="https://portamook.com/assets/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Cubierta del volumen fundacional de PORTA, Cuadernos de Identidad Baionesa">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PORTA | Cuadernos de Identidad Baionesa">
+    <meta name="twitter:description" content="Volumen fundacional: 120 páginas en español y gallego sobre la historia y la memoria de la Real Villa de Baiona.">
+    <meta name="twitter:image" content="https://portamook.com/assets/og-image.jpg">
+
+    <!-- Datos estructurados para buscadores -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "PORTA. Cuadernos de Identidad Baionesa. Volumen fundacional",
+        "description": "Volumen de 120 páginas, tapa dura con slipcase, en español y gallego, sobre la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona. Primera edición, 2026.",
+        "image": "https://portamook.com/assets/og-image.jpg",
+        "url": "https://portamook.com/",
+        "brand": { "@type": "Brand", "name": "PORTA" },
+        "author": { "@type": "Person", "name": "Aldara Álvarez González" },
+        "offers": {
+            "@type": "Offer",
+            "price": "40.00",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/LimitedAvailability",
+            "url": "https://portamook.com/#compra"
+        }
+    }
+    </script>
+
     <!-- Google Fonts: League Spartan (Titulares) y Lato (Cuerpo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=League+Spartan:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'azul-atlantico': '#06478d',
-                        'granito': '#7c7c7c',
-                        'arena': '#d7af5f',
-                        'papel': '#faf9f6',
-                    },
-                    fontFamily: {
-                        'spartan': ['"League Spartan"', 'sans-serif'],
-                        'lato': ['Lato', 'sans-serif'],
-                    },
-                    letterSpacing: {
-                        widest: '.25em',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Imagen principal: se descarga cuanto antes -->
+    <link rel="preload" as="image" href="assets/images/porta-cover.webp" type="image/webp">
+
+    <!-- Tailwind CSS compilado (lo genera el workflow de despliegue; ver tailwind.config.js) -->
+    <link rel="stylesheet" href="assets/css/tailwind.css">
+
+    <!-- Sin JavaScript no se oculta el contenido que se anima al hacer scroll -->
+    <noscript><style>.fade-in-up { opacity: 1 !important; transform: none !important; }</style></noscript>
 
     <style>
         body {
@@ -86,6 +115,13 @@
             color: #a0aec0;
             font-weight: 300;
         }
+
+        /* Respeta a quien prefiere menos movimiento */
+        @media (prefers-reduced-motion: reduce) {
+            .fade-in-up, .slow-transition { transition: none !important; }
+            .fade-in-up { opacity: 1; transform: none; }
+            html { scroll-behavior: auto !important; }
+        }
     </style>
 </head>
 <body class="font-lato antialiased selection:bg-azul-atlantico selection:text-white flex flex-col min-h-screen">
@@ -95,7 +131,7 @@
     <nav class="fixed w-full top-0 bg-papel/80 backdrop-blur-md z-40 border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <div>
-                <img src="assets/images/porta-logotipo.png" alt="PORTA" class="h-8 w-auto">
+                <img src="assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" class="h-8 w-auto">
             </div>
             <div>
                 <a href="#compra" class="text-azul-atlantico font-spartan text-xs tracking-widest hover:text-arena slow-transition uppercase">
@@ -134,7 +170,7 @@
                 <!-- Mockup de la revista -->
                 <div class="observe-me fade-in-up delay-200 relative">
                     <div class="aspect-[3/4] bg-white shadow-2xl relative overflow-hidden border border-gray-100">
-                        <img src="assets/images/porta-cover.jpg" alt="Cubierta y slipcase de PORTA" class="w-full h-full object-cover">
+                        <img src="assets/images/porta-cover.webp" alt="Cubierta y slipcase de PORTA" width="1000" height="1000" fetchpriority="high" class="w-full h-full object-cover">
                     </div>
                     <!-- Decoración sutil -->
                     <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-arena/20 z-[-1] rounded-full blur-2xl"></div>
@@ -151,18 +187,18 @@
             <section class="mb-32 observe-me fade-in-up">
                 <h3 class="font-spartan text-xs tracking-widest text-granito uppercase mb-8 text-center">Algunas páginas del volumen</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="assets/images/porta-interior-01.jpg" alt="Doble página interior de Porta: mapa ilustrado de la bahía de Baiona" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-foto-01.jpg" alt="Fotografía editorial de Porta: Monasterio de Baiona" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-ilustracion-02.jpg" alt="Ilustración a acuarela de Porta" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-editorial-03.jpg" alt="Maquetación editorial de Porta" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-interior-05.jpg" alt="Doble página interior de Porta: monumento Encuentro entre Dos Mundos" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
-                    <img src="assets/images/porta-foto-06.jpg" alt="Fotografía editorial de Porta: petroglifos del Val Miñor" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-interior-01.webp" alt="Doble página interior de Porta: mapa ilustrado de la bahía de Baiona" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-foto-01.webp" alt="Fotografía editorial de Porta: Monasterio de Baiona" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-ilustracion-02.webp" alt="Ilustración a acuarela de Porta" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-editorial-03.webp" alt="Maquetación editorial de Porta" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-interior-05.webp" alt="Doble página interior de Porta: monumento Encuentro entre Dos Mundos" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
+                    <img src="assets/images/porta-foto-06.webp" alt="Fotografía editorial de Porta: petroglifos del Val Miñor" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy">
                 </div>
             </section>
 
             <section id="autora" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
                 <div class="md:col-span-5 observe-me fade-in-up">
-                    <img src="assets/images/author2.jpg" alt="Aldara Álvarez González" class="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 slow-transition duration-1000">
+                    <img src="assets/images/author2.webp" alt="Aldara Álvarez González" width="900" height="900" loading="lazy" class="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 slow-transition duration-1000">
                 </div>
                 <div class="md:col-span-7 observe-me fade-in-up delay-200 lg:pl-12">
                     <h3 class="font-spartan text-xs tracking-widest text-granito mb-4 uppercase">Sobre la Autora</h3>
@@ -216,26 +252,36 @@
                     <!-- Formulario de pedido editorial -->
                     <div class="bg-papel p-8">
                         <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico mb-8 uppercase">Solicitar Envío Postal</h3>
-                        <form onsubmit="event.preventDefault(); showMessage();" class="space-y-6">
+                        <form id="pedido" class="space-y-6">
                             <div>
-                                <input type="text" placeholder="Nombre completo" required class="editorial-input">
+                                <input type="text" name="nombre" autocomplete="name" aria-label="Nombre completo" placeholder="Nombre completo" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <input type="email" placeholder="Correo electrónico" required class="editorial-input">
+                                <input type="email" name="email" autocomplete="email" aria-label="Correo electrónico" placeholder="Correo electrónico" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <input type="text" placeholder="Dirección de envío completa" required class="editorial-input">
+                                <input type="text" name="direccion" autocomplete="street-address" aria-label="Dirección de envío completa" placeholder="Dirección de envío completa" required maxlength="300" class="editorial-input">
                             </div>
                             <div>
-                                <input type="number" min="1" max="10" placeholder="Cantidad de ejemplares" required class="editorial-input">
+                                <input type="number" name="ejemplares" inputmode="numeric" aria-label="Cantidad de ejemplares" min="1" max="10" placeholder="Cantidad de ejemplares" required class="editorial-input">
                             </div>
-                            
-                            <button type="submit" class="w-full bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 mt-8 hover:bg-azul-atlantico/90 slow-transition uppercase text-center">
-                                Proceder al Pago Seguro
+
+                            <!-- Trampa para bots: las personas no lo ven -->
+                            <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+
+                            <button type="submit" class="w-full bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 mt-8 hover:bg-azul-atlantico/90 slow-transition uppercase text-center disabled:opacity-60 disabled:cursor-wait">
+                                Solicitar mi ejemplar
                             </button>
-                            
-                            <p id="success-msg" class="hidden text-green-700 text-sm mt-4 text-center font-light">
-                                Gracias. Te redirigiremos a la pasarela de pago en breve.
+
+                            <p class="text-xs text-granito font-light leading-relaxed text-center">
+                                Recibiremos tu solicitud y te escribiremos al correo indicado con el importe final y las instrucciones de pago.
+                            </p>
+
+                            <p id="success-msg" role="status" class="hidden text-green-700 text-sm mt-4 text-center font-light">
+                                Gracias. Hemos recibido tu solicitud y te escribiremos en breve.
+                            </p>
+                            <p id="error-msg" role="alert" class="hidden text-red-700 text-sm mt-4 text-center font-light">
+                                No se ha podido enviar la solicitud. Inténtalo de nuevo o escríbenos a <a href="mailto:info@portamook.com" class="underline">info@portamook.com</a>.
                             </p>
                         </form>
                     </div>
@@ -248,7 +294,7 @@
     <footer class="bg-white border-t border-gray-200 mt-auto py-12">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
             <div>
-                <img src="assets/images/porta-logotipo.png" alt="PORTA" class="h-7 w-auto mb-2 mx-auto md:mx-0">
+                <img src="assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" loading="lazy" class="h-7 w-auto mb-2 mx-auto md:mx-0">
                 <div class="font-lato text-xs text-granito uppercase tracking-widest">
                     Cuadernos de Identidad Baionesa
                 </div>
@@ -256,7 +302,7 @@
             
             <div class="font-spartan text-xs tracking-widest text-azul-atlantico flex flex-col md:flex-row gap-4 md:gap-8">
                 <a href="mailto:info@portamook.com" class="hover:text-arena slow-transition">INFO@PORTAMOOK.COM</a>
-                <a href="#" class="hover:text-arena slow-transition">INSTAGRAM: @PORTA_MOOK</a>
+                <a href="https://www.instagram.com/porta_mook/" target="_blank" rel="noopener" class="hover:text-arena slow-transition">INSTAGRAM: @PORTA_MOOK</a>
             </div>
 
             <div class="font-lato text-xs text-gray-400 font-light">
@@ -289,21 +335,51 @@
             });
         });
 
-        // Simulación de envío del formulario
-        function showMessage() {
-            const btn = document.querySelector('button[type="submit"]');
-            const msg = document.getElementById('success-msg');
-            
-            btn.innerHTML = "Procesando...";
-            btn.classList.add('opacity-75');
-            
-            setTimeout(() => {
-                msg.classList.remove('hidden');
-                btn.innerHTML = "Completado";
-                btn.style.backgroundColor = "#d4c3a3"; // Color arena
-                btn.style.color = "#1a365d";
-            }, 1000);
-        }
+        // Envío real del pedido por correo mediante Web3Forms
+        // (la clave de acceso es pública por diseño; solo permite enviar formularios)
+        const WEB3FORMS_ACCESS_KEY = "9730a2ad-8c3b-43d9-b68c-ad611768d778";
+
+        document.getElementById('pedido').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"]');
+            const ok = document.getElementById('success-msg');
+            const ko = document.getElementById('error-msg');
+            const textoBoton = btn.textContent;
+
+            ok.classList.add('hidden');
+            ko.classList.add('hidden');
+            btn.disabled = true;
+            btn.textContent = "Enviando...";
+
+            const datos = {
+                access_key: WEB3FORMS_ACCESS_KEY,
+                subject: "Nueva solicitud de PORTA (portamook.com)",
+                from_name: "Web PORTA",
+                nombre: form.nombre.value.trim(),
+                email: form.email.value.trim(),
+                direccion: form.direccion.value.trim(),
+                ejemplares: form.ejemplares.value,
+                botcheck: form.botcheck.checked
+            };
+
+            try {
+                const respuesta = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(datos)
+                });
+                const resultado = await respuesta.json();
+                if (!respuesta.ok || !resultado.success) throw new Error(resultado.message || 'Error de envío');
+                form.reset();
+                ok.classList.remove('hidden');
+                btn.textContent = "Solicitud enviada";
+            } catch (error) {
+                ko.classList.remove('hidden');
+                btn.disabled = false;
+                btn.textContent = textoBoton;
+            }
+        });
     </script>
 </body>
 </html>

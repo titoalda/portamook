@@ -16,6 +16,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Setup Node.js (CSS)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Build Tailwind CSS
+        run: npx --yes tailwindcss@3.4.17 -c tailwind.config.js -i tailwind-input.css -o assets/css/tailwind.css --minify
+
       - name: Start Apache server
         run: docker compose -f automation/docker-compose.yml up -d
 

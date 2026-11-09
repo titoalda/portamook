@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portamook.com/sitemap.xml

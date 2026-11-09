@@ -45,3 +45,17 @@ git remote add origin https://github.com/titoalda/portamook.git
 # 6. Subir el código a GitHub (se te pedirá tu usuario y token personal)
 git push -u origin main
 ```
+
+## CSS (Tailwind)
+
+El CSS ya no se carga desde el CDN: se compila en los workflows (`pages.yml` y `screenshot.yml`) con `tailwindcss@3.4.17` a `assets/css/tailwind.css` (ignorado por git). Para verlo en local, genera ese fichero antes de levantar Docker:
+
+```bash
+npx tailwindcss@3.4.17 -c tailwind.config.js -i tailwind-input.css -o assets/css/tailwind.css --minify
+```
+
+Los colores y tipografías de marca están en `tailwind.config.js`.
+
+## Formulario de pedido
+
+El formulario envía la solicitud por correo con [Web3Forms](https://web3forms.com). El correo `info@portamook.com` se reenvía mediante Cloudflare Email Routing.

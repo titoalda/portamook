@@ -24,14 +24,21 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build Tailwind CSS
+        run: npx --yes tailwindcss@3.4.17 -c tailwind.config.js -i tailwind-input.css -o assets/css/tailwind.css --minify
+
       - name: Prepare Site Directory
         run: |
           mkdir _site
           cp porta_cuadernos_de_identidad_baionesa.html _site/index.html
-          # Copiamos otros posibles recursos o imágenes estáticas si los hay
-          cp screenshot.png _site/ || true
-          cp -r assets _site/ || true
-          
+          cp robots.txt sitemap.xml _site/
+          cp -r assets _site/
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         
