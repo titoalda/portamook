@@ -1,3 +1,5 @@
+# portamook.com: sitio público de PORTA. Se permite el rastreo completo,
+# incluidos los rastreadores de buscadores y de asistentes de IA.
 User-agent: *
 Allow: /
 
