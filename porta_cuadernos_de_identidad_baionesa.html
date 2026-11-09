@@ -20,7 +20,7 @@
     <meta property="og:site_name" content="PORTA">
     <meta property="og:locale" content="es_ES">
     <meta property="og:title" content="PORTA | Cuadernos de Identidad Baionesa">
-    <meta property="og:description" content="Volumen fundacional: 120 páginas en español y gallego sobre la historia y la memoria de la Real Villa de Baiona. Tirada limitada.">
+    <meta property="og:description" content="Libro bilingüe (español y gallego) sobre la historia y la memoria de la Real Villa de Baiona. Preventa abierta; publicación prevista en diciembre de 2026.">
     <meta property="og:url" content="https://portamook.com/">
     <meta property="og:image" content="https://portamook.com/assets/og-image.jpg">
     <meta property="og:image:width" content="1200">
@@ -58,14 +58,18 @@
                 "@type": "Person",
                 "@id": "https://portamook.com/#autora",
                 "name": "Aldara Álvarez González",
-                "jobTitle": "Diseñadora editorial y curadora visual"
+                "jobTitle": "Diseñadora editorial y curadora visual",
+                "sameAs": ["https://aldaraalvarez.es"]
             },
             {
-                "@type": "Product",
+                "@type": ["Book", "Product"],
                 "name": "PORTA. Cuadernos de Identidad Baionesa. Volumen fundacional",
                 "description": "Volumen de 120 páginas, tapa dura con slipcase, en español y gallego, sobre la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona. Primera edición, 2026.",
                 "image": "https://portamook.com/assets/og-image.jpg",
                 "url": "https://portamook.com/",
+                "bookFormat": "https://schema.org/Hardcover",
+                "numberOfPages": 120,
+                "inLanguage": ["es", "gl"],
                 "brand": { "@id": "https://portamook.com/#org" },
                 "author": { "@id": "https://portamook.com/#autora" },
                 "offers": {
@@ -73,6 +77,8 @@
                     "price": "40.00",
                     "priceCurrency": "EUR",
                     "availability": "https://schema.org/PreOrder",
+                    "availabilityStarts": "2026-12-01",
+                    "priceValidUntil": "2026-12-31",
                     "url": "https://portamook.com/#compra"
                 }
             }
@@ -141,7 +147,7 @@
             border-bottom-color: #06478d;
         }
         .editorial-input::placeholder {
-            color: #a0aec0;
+            color: #6b7280;
             font-weight: 300;
         }
 
@@ -168,10 +174,10 @@
     <nav aria-label="Principal" class="fixed w-full top-0 bg-papel/80 backdrop-blur-md z-40 border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <div>
-                <img src="assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" class="h-8 w-auto">
+                <a href="./" aria-label="PORTA, inicio"><img src="assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" class="h-8 w-auto"></a>
             </div>
             <div>
-                <a href="#compra" class="text-azul-atlantico font-spartan text-xs tracking-widest hover:text-arena slow-transition uppercase">
+                <a href="#compra" class="text-azul-atlantico font-spartan text-xs tracking-widest hover:text-arena-oscuro slow-transition uppercase">
                     Reservar
                 </a>
             </div>
@@ -183,17 +189,18 @@
             
             <!-- Hero / Presentación del Objeto -->
             <section class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
-                <div class="observe-me fade-in-up">
+                <div>
                     <p class="inline-block font-spartan text-[0.65rem] tracking-widest uppercase text-arena-oscuro border border-arena/60 px-3 py-1 mb-6">Edición en preparación · Preventa abierta</p>
                     <p class="font-spartan text-xs tracking-widest text-granito-texto uppercase mb-4">Cuadernos de Identidad Baionesa</p>
-                    <h1 class="font-spartan text-5xl md:text-7xl font-bold text-azul-atlantico leading-tight mb-8">
-                        Un espacio<br>de resistencia<br>matérica.
+                    <h1 class="font-spartan text-4xl md:text-6xl font-bold text-azul-atlantico leading-tight mb-4">
+                        PORTA: un libro sobre la historia y la memoria de Baiona
                     </h1>
+                    <p class="font-spartan text-xl md:text-2xl text-granito-texto font-light mb-8">Un espacio de resistencia matérica.</p>
                     <p class="font-lato text-xl text-gray-600 font-light leading-relaxed mb-8">
                         El volumen fundacional de PORTA es una colección monográfica independiente concebida bajo los ritmos de la corriente <em>Slow Media</em>.
                     </p>
                     <p class="font-lato text-gray-600 font-light leading-relaxed mb-10">
-                        Un archivo permanente bilingüe diseñado para explorar a fuego lento la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona. Impreso con rigor editorial para habitar la contemplación.
+                        Un libro bilingüe, en gallego y español, concebido como archivo permanente para explorar a fuego lento la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona. Impreso con rigor editorial para habitar la contemplación.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="#compra" class="bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 hover:bg-azul-atlantico/90 slow-transition text-center uppercase">
@@ -206,8 +213,8 @@
                 </div>
                 
                 <!-- Mockup de la revista -->
-                <div class="observe-me fade-in-up delay-200 relative">
-                    <div class="aspect-[3/4] bg-white shadow-2xl relative overflow-hidden border border-gray-100">
+                <div class="relative">
+                    <div class="aspect-square bg-white shadow-2xl relative overflow-hidden border border-gray-100">
                         <img src="assets/images/porta-cover.webp" alt="Cubierta y slipcase de PORTA" width="1000" height="1000" fetchpriority="high" class="w-full h-full object-cover">
                     </div>
                     <!-- Decoración sutil -->
@@ -218,7 +225,7 @@
             <section class="mb-32 observe-me fade-in-up border-y border-gray-200 py-16">
                 <h2 class="font-spartan text-xl text-azul-atlantico text-center mb-8 uppercase tracking-widest">La Edición</h2>
                 <p class="max-w-2xl mx-auto text-center text-gray-600 font-light leading-relaxed text-lg">
-                    Un volumen de 120 páginas, impreso en papel FSC de acabado mate y encuadernado en tapa dura con slipcase. Se edita en español y gallego, a doble columna, cuidando que el texto respire. Primera edición, Baiona, 2026, actualmente en preparación.
+                    Un volumen de 120 páginas, impreso en papel FSC de acabado mate y encuadernado en tapa dura con slipcase. Se edita en español y gallego, a doble columna, cuidando que el texto respire. Primera edición, Baiona, con publicación prevista para diciembre de 2026; actualmente en preparación.
                 </p>
             </section>
 
@@ -267,13 +274,13 @@
                             El Volumen Fundacional es una tirada limitada de carácter independiente. Apoya este proyecto editorial reservando tu ejemplar físico.
                         </p>
                         <p class="text-sm text-granito-texto font-light mb-8 leading-relaxed border-l-2 border-arena pl-4">
-                            La edición sigue en preparación y todavía no existen ejemplares físicos. Por ahora abrimos una preventa: reservar no supone ningún pago, solo anotamos tu ejemplar para avisarte cuando esté listo.
+                            La edición sigue en preparación y todavía no existen ejemplares físicos; la publicación está prevista para diciembre de 2026. Por ahora abrimos una preventa: reservar no supone ningún pago, solo anotamos tu ejemplar para avisarte cuando esté listo.
                         </p>
                         
                         <div class="mb-10">
                             <span class="block font-spartan text-4xl text-azul-atlantico font-light mb-2">40,00 €</span>
                             <span class="block text-xs text-granito-texto uppercase tracking-widest">El libro · precio provisional</span>
-                            <span class="block text-xs text-granito-texto font-light mt-3">Los gastos de envío se indican aparte al confirmar tu reserva.</span>
+                            <span class="block text-xs text-granito-texto font-light mt-3">Los gastos de envío se indican aparte al confirmar tu reserva. El precio puede cambiar antes de la publicación; te avisaremos antes de cobrar nada.</span>
                         </div>
 
                         <div class="space-y-4">
@@ -296,16 +303,20 @@
                         <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico mb-8 uppercase">Reserva en preventa</h3>
                         <form id="pedido" class="space-y-6">
                             <div>
-                                <input type="text" name="nombre" autocomplete="name" aria-label="Nombre completo" placeholder="Nombre completo" required maxlength="120" class="editorial-input">
+                                <label for="f-nombre" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Nombre completo</label>
+                                <input type="text" name="nombre" id="f-nombre" autocomplete="name" placeholder="Nombre completo" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <input type="email" name="email" autocomplete="email" aria-label="Correo electrónico" placeholder="Correo electrónico" required maxlength="120" class="editorial-input">
+                                <label for="f-email" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Correo electrónico</label>
+                                <input type="email" name="email" id="f-email" autocomplete="email" placeholder="Correo electrónico" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <input type="text" name="direccion" autocomplete="street-address" aria-label="Dirección de envío completa" placeholder="Dirección de envío completa" required maxlength="300" class="editorial-input">
+                                <label for="f-localidad" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Municipio y país</label>
+                                <input type="text" name="localidad" id="f-localidad" autocomplete="address-level2" placeholder="Para calcular el envío" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <input type="number" name="ejemplares" inputmode="numeric" aria-label="Cantidad de ejemplares" min="1" max="10" placeholder="Cantidad de ejemplares" required class="editorial-input">
+                                <label for="f-ejemplares" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Cantidad de ejemplares</label>
+                                <input type="number" name="ejemplares" id="f-ejemplares" inputmode="numeric" min="1" max="10" value="1" required class="editorial-input">
                             </div>
 
                             <label class="flex items-start gap-3 text-xs text-granito-texto font-light leading-relaxed">
@@ -321,8 +332,7 @@
                             </button>
 
                             <p class="text-xs text-granito-texto font-light leading-relaxed text-center">
-                                No se cobra nada ahora. Anotamos tu reserva y, cuando la edición esté lista, te escribiremos al correo indicado con el importe final y las instrucciones de pago. Podrás confirmar o cancelar sin compromiso.
-                            </p>
+                                No se cobra nada ahora. Confirmaremos tu reserva por correo y, cuando la edición esté lista (prevista para diciembre de 2026), te escribiremos con el importe final, los gastos de envío y las instrucciones de pago. Antes de cualquier cobro podrás confirmar o cancelar sin compromiso; también puedes cancelar respondiendo a ese correo.</p>
 
                             <p id="success-msg" role="status" class="hidden text-green-700 text-sm mt-4 text-center font-light">
                                 Gracias. Hemos anotado tu reserva; no se ha realizado ningún cobro. Te escribiremos cuando la edición esté lista.
@@ -348,9 +358,10 @@
             </div>
             
             <div class="font-spartan text-xs tracking-widest text-azul-atlantico flex flex-col md:flex-row gap-4 md:gap-8">
-                <a href="mailto:info@portamook.com" class="hover:text-arena slow-transition">INFO@PORTAMOOK.COM</a>
-                <a href="privacidad.html" class="hover:text-arena slow-transition">PRIVACIDAD</a>
-                <a href="https://www.instagram.com/porta_mook/" target="_blank" rel="noopener" class="hover:text-arena slow-transition">INSTAGRAM: @PORTA_MOOK</a>
+                <a href="mailto:info@portamook.com" class="hover:text-arena-oscuro slow-transition">INFO@PORTAMOOK.COM</a>
+                <a href="privacidad.html" class="hover:text-arena-oscuro slow-transition">PRIVACIDAD</a>
+                <a href="aviso-legal.html" class="hover:text-arena-oscuro slow-transition">AVISO LEGAL</a>
+                <a href="https://www.instagram.com/porta_mook/" target="_blank" rel="noopener" class="hover:text-arena-oscuro slow-transition">INSTAGRAM: @PORTA_MOOK</a>
             </div>
 
             <div class="font-lato text-xs text-gray-500 font-light">
@@ -406,7 +417,7 @@
                 from_name: "Web PORTA",
                 nombre: form.nombre.value.trim(),
                 email: form.email.value.trim(),
-                direccion: form.direccion.value.trim(),
+                localidad: form.localidad.value.trim(),
                 ejemplares: form.ejemplares.value,
                 privacidad_aceptada: form.privacidad.checked ? "sí" : "no",
                 botcheck: form.botcheck.checked
