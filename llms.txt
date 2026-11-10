@@ -1,12 +1,12 @@
 # PORTA · Cuadernos de Identidad Baionesa
 
-> PORTA es una colección monográfica independiente, de ritmo lento (Slow Media), sobre la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona (Pontevedra, Galicia). Su volumen fundacional está en preparación y tiene una preventa abierta, sin pago por adelantado. Autora, edición y dirección de arte: Aldara Álvarez González.
+> PORTA es una colección monográfica independiente, sobre la historia, la mitología y la memoria arquitectónica de la Real Villa de Baiona (Pontevedra, Galicia). Su volumen fundacional (Nº 1) está en preparación y tiene una preventa abierta, sin pago por adelantado. Autora, edición y dirección de arte: Aldara Álvarez González.
 
 ## Datos clave
 
 - Obra: PORTA. Cuadernos de Identidad Baionesa. Volumen fundacional (primera edición, Baiona, 2026).
-- Formato: 120 páginas, tapa dura con slipcase, papel FSC de acabado mate, a doble columna.
-- Idiomas: español y gallego.
+- Formato: más de 100 páginas, tapa dura con slipcase, papel FSC de acabado mate. Secciones: Narrativa Histórica, Ensayo Visual, Patrimonio Inmaterial, Archivo Visual y Catálogo Monumental, más Glosario de Identidad y bibliografía.
+- Idiomas: texto en español, con títulos de imagen en gallego y español y léxico gallego (glosario).
 - Estado: en preparación; todavía no existen ejemplares físicos. Publicación prevista para diciembre de 2026. La web permite reservar un ejemplar en preventa; reservar no supone ningún pago.
 - Precio: 40 € el libro (provisional; puede cambiar antes de la publicación), con los gastos de envío aparte. Proyecto personal sin empresa constituida por ahora.
 - Puntos de venta físicos previstos, cuando se publique: Librería Época y Espacio de Arte A Erizana (Baiona).
@@ -15,7 +15,7 @@
 ## Páginas
 
 - [Inicio](https://portamook.com/): presentación del volumen, la edición, la autora y el formulario de reserva en preventa.
-- [Versión en gallego](https://portamook.com/gl/): la misma página en gallego (el libro es bilingüe gallego y español).
+- [Versión en gallego](https://portamook.com/gl/): la misma página en gallego (el libro está en español, con títulos de imagen y léxico en gallego).
 - [Política de privacidad](https://portamook.com/privacidad.html): qué datos se recogen al reservar, para qué y con qué proveedores.
 - [Aviso legal](https://portamook.com/aviso-legal.html): titular del sitio, ubicación y condiciones de uso.
 
