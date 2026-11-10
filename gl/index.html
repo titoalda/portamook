@@ -230,11 +230,21 @@
         /* Al saltar a una sección (#compra, #autora...) que no quede tapada por la barra fija */
         section[id] { scroll-margin-top: 6rem; }
 
+        /* Menú del móvil: las tres rayas pasan a una X y el panel entra con un fundido corto */
+        #menu-boton path { transform-box: fill-box; transform-origin: center; transition: transform 0.25s ease, opacity 0.2s ease; }
+        #menu-boton[aria-expanded="true"] .menu-l1 { transform: translateY(5px) rotate(45deg); }
+        #menu-boton[aria-expanded="true"] .menu-l2 { opacity: 0; }
+        #menu-boton[aria-expanded="true"] .menu-l3 { transform: translateY(-5px) rotate(-45deg); }
+        #menu-movil:not([hidden]) { animation: menu-entra 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        @keyframes menu-entra { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
         /* Respeta a quien prefiere menos movimiento */
         @media (prefers-reduced-motion: reduce) {
             .fade-in-up, .slow-transition { transition: none !important; }
             .fade-in-up { opacity: 1; transform: none; }
             .pm-galeria.is-js .pm-galeria-item { opacity: 1; transform: none; transition: none; }
+            #menu-boton path { transition: none; }
+            #menu-movil:not([hidden]) { animation: none; }
             html { scroll-behavior: auto !important; }
         }
     </style>
@@ -249,11 +259,26 @@
                 <a href="./" aria-label="PORTA, inicio"><img src="../assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" class="h-8 w-auto"></a>
             </div>
             <div class="flex items-center gap-6">
-                <a href="../" hreflang="es" lang="es" class="text-granito-texto font-spartan text-xs tracking-widest hover:text-azul-atlantico slow-transition uppercase">Español</a>
+                <a href="../" hreflang="es" lang="es" class="hidden md:inline text-granito-texto font-spartan text-xs tracking-widest hover:text-azul-atlantico slow-transition uppercase">Español</a>
                 <a href="#compra" class="text-azul-atlantico font-spartan text-xs tracking-widest hover:text-arena-oscuro slow-transition uppercase">
                     Reservar
                 </a>
+                <button type="button" id="menu-boton" class="md:hidden -mr-2 p-2 text-azul-atlantico" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú" data-abrir="Abrir menú" data-cerrar="Pechar menú">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path class="menu-l1" d="M3 7h18"/><path class="menu-l2" d="M3 12h18"/><path class="menu-l3" d="M3 17h18"/></svg>
+                </button>
             </div>
+        </div>
+        <div id="menu-movil" class="md:hidden border-t border-gray-200 bg-papel" hidden>
+            <ul class="max-w-6xl mx-auto px-6 py-3" aria-label="Apartados">
+                <li><a href="#contenido" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">Inicio</a></li>
+                <li><a href="#edicion" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">A edición</a></li>
+                <li><a href="#contenido-libro" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">Dentro de PORTA</a></li>
+                <li><a href="#galeria" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">Galería</a></li>
+                <li><a href="#autora" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">Sobre a autora</a></li>
+                <li><a href="#compra" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">Reservar</a></li>
+                <li><a href="#preguntas" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">Preguntas frecuentes</a></li>
+                <li class="mt-2 pt-2 border-t border-gray-200"><a href="../" hreflang="es" lang="es" class="block py-3 font-spartan text-xs tracking-widest uppercase text-granito-texto hover:text-azul-atlantico slow-transition">Español</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -300,7 +325,7 @@
                 </div>
             </section>
 
-            <section class="mb-32 observe-me fade-in-up border-y border-gray-200 py-16">
+            <section id="edicion" class="mb-32 observe-me fade-in-up border-y border-gray-200 py-16">
                 <h2 class="font-spartan text-xl text-azul-atlantico text-center mb-8 uppercase tracking-widest">A edición</h2>
                 <p class="max-w-2xl mx-auto text-center text-gray-600 font-light leading-relaxed text-lg">
                     Un volume de máis de 100 páxinas, impreso en papel FSC de acabado mate e encadernado en tapa dura. Organízase en cinco seccións (Narrativa Histórica, Ensaio Visual, Patrimonio Inmaterial, Arquivo Visual e Catálogo Monumental) e péchase cun Glosario de Identidade e a bibliografía. O texto está en español, cos títulos das imaxes en galego e en español, e compónse coidando que respire. Primeira edición, Baiona, con publicación prevista para 2027; actualmente en preparación.
@@ -620,6 +645,27 @@
             } else {
                 items.forEach(function (item) { item.classList.add('is-in'); });
             }
+        })();
+
+        // Menú del móvil
+        (function () {
+            const boton = document.getElementById('menu-boton');
+            const menu = document.getElementById('menu-movil');
+            if (!boton || !menu) return;
+            function poner(abierto) {
+                menu.hidden = !abierto;
+                boton.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+                boton.setAttribute('aria-label', abierto ? boton.dataset.cerrar : boton.dataset.abrir);
+            }
+            boton.addEventListener('click', function () { poner(menu.hidden); });
+            menu.addEventListener('click', function (e) { if (e.target.closest('a')) poner(false); });
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && !menu.hidden) { poner(false); boton.focus(); }
+            });
+            document.addEventListener('click', function (e) {
+                if (!menu.hidden && !menu.contains(e.target) && !boton.contains(e.target)) poner(false);
+            });
+            window.matchMedia('(min-width: 768px)').addEventListener('change', function (m) { if (m.matches) poner(false); });
         })();
 
         // Visor para ampliar las imágenes de la galería
