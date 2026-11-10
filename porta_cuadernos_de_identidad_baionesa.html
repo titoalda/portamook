@@ -68,7 +68,7 @@
             {
                 "@type": ["Book", "Product"],
                 "name": "PORTA. Cuadernos de Identidad Baionesa. Volumen fundacional",
-                "description": "Volumen de más de 100 páginas, tapa dura con slipcase, en español con títulos y léxico en gallego, sobre la historia, los mitos y el patrimonio monumental de la Real Villa de Baiona. PORTA Nº 1, primera edición, 2026.",
+                "description": "Volumen de más de 100 páginas, tapa dura, en español con títulos y léxico en gallego, sobre la historia, los mitos y el patrimonio monumental de la Real Villa de Baiona. PORTA Nº 1, primera edición, 2026.",
                 "image": "https://portamook.com/assets/og-image.jpg",
                 "url": "https://portamook.com/",
                 "bookFormat": "https://schema.org/Hardcover",
@@ -227,6 +227,9 @@
         .pm-galeria-item:nth-child(3n+2) { transition-delay: 120ms; }
         .pm-galeria-item:nth-child(3n+3) { transition-delay: 240ms; }
 
+        /* Al saltar a una sección (#compra, #autora...) que no quede tapada por la barra fija */
+        section[id] { scroll-margin-top: 6rem; }
+
         /* Respeta a quien prefiere menos movimiento */
         @media (prefers-reduced-motion: reduce) {
             .fade-in-up, .slow-transition { transition: none !important; }
@@ -268,10 +271,14 @@
                     </h1>
                     <p class="font-spartan text-xl md:text-2xl text-granito-texto font-light mb-8">Un espacio de resistencia matérica.</p>
                     <p class="font-lato text-xl text-gray-600 font-light leading-relaxed mb-8">
-                        PORTA (Nº 1) es un cuaderno monográfico dedicado a la Real Villa de Baiona.
+                        PORTA (Nº 1) es un cuaderno monográfico<br>
+                        dedicado a la Real Villa de Baiona.
+                    </p>
+                    <p class="font-lato text-gray-600 font-light leading-relaxed mb-4">
+                        Un libro en español, con títulos y léxico en gallego, concebido como archivo permanente para recorrer a fuego lento la historia, los mitos y el patrimonio monumental de la Real Villa de Baiona, desde la Carta Puebla de 1201 hasta el presente, pasando por la arribada de La Pinta en 1493.
                     </p>
                     <p class="font-lato text-gray-600 font-light leading-relaxed mb-10">
-                        Un libro en español, con títulos y léxico en gallego, concebido como archivo permanente para recorrer a fuego lento la historia, los mitos y el patrimonio monumental de la Real Villa de Baiona, desde la Carta Puebla de 1201 hasta el presente, pasando por la arribada de La Pinta en 1493. Impreso con rigor editorial para habitarla desde la contemplación.
+                        Impreso con rigor editorial para habitarla desde la contemplación.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6">
                         <a href="#compra" class="bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 hover:bg-azul-atlantico/90 slow-transition text-center uppercase">
@@ -296,7 +303,7 @@
             <section class="mb-32 observe-me fade-in-up border-y border-gray-200 py-16">
                 <h2 class="font-spartan text-xl text-azul-atlantico text-center mb-8 uppercase tracking-widest">La Edición</h2>
                 <p class="max-w-2xl mx-auto text-center text-gray-600 font-light leading-relaxed text-lg">
-                    Un volumen de más de 100 páginas, impreso en papel FSC de acabado mate y encuadernado en tapa dura con slipcase. Se organiza en cinco secciones (Narrativa Histórica, Ensayo Visual, Patrimonio Inmaterial, Archivo Visual y Catálogo Monumental) y se cierra con un Glosario de Identidad y la bibliografía. El texto está en español, con los títulos de las imágenes en gallego y en español, y se compone cuidando que respire. Primera edición, Baiona, con publicación prevista para 2027; actualmente en preparación.
+                    Un volumen de más de 100 páginas, impreso en papel FSC de acabado mate y encuadernado en tapa dura. Se organiza en cinco secciones (Narrativa Histórica, Ensayo Visual, Patrimonio Inmaterial, Archivo Visual y Catálogo Monumental) y se cierra con un Glosario de Identidad y la bibliografía. El texto está en español, con los títulos de las imágenes en gallego y en español, y se compone cuidando que respire. Primera edición, Baiona, con publicación prevista para 2027; actualmente en preparación.
                 </p>
             </section>
 
@@ -338,41 +345,41 @@
                     <h2 class="font-spartan text-xl text-azul-atlantico uppercase tracking-widest">Galería del&nbsp;mook</h2>
                 </div>
                 <div class="pm-galeria" id="pm-galeria">
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-08.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/monograma.webp" alt="Monograma de Porta" width="1200" height="1064" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-04.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-01.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1034" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-05.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/icono-arco.webp" alt="Icono del arco de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/logo-descriptor.webp" alt="Logotipo de Porta con descriptor Cuadernos de&nbsp;Identidad Baionesa" width="1200" height="400" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/slipcase.webp" alt="Estuche de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-09.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1177" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-01.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-06.webp" alt="Fotografía editorial de Porta" width="1102" height="915" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-06.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1693" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/icono-barco.webp" alt="Icono del barco de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-08.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="967" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/mook-coleccion.webp" alt="Colección editorial de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-07.webp" alt="Fotografía editorial de Porta" width="1200" height="900" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-04.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1607" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-07.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                     <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-03.webp" alt="Fotografía editorial de Porta" width="1200" height="1275" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-03.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-05.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="559" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-02.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/icono-ola.webp" alt="Icono de la ola de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-10.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1607" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-05.webp" alt="Fotografía editorial de Porta" width="1200" height="675" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/logo.webp" alt="Logotipo de Porta" width="1200" height="411" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                     <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-07.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="589" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-07.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-04.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1607" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-06.webp" alt="Fotografía editorial de Porta" width="1102" height="915" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-03.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/icono-ola.webp" alt="Icono de la ola de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-09.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1177" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-04.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/icono-arco.webp" alt="Icono del arco de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-01.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1034" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                     <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-01.webp" alt="Fotografía editorial de Porta" width="1200" height="803" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                     <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/mook-horizontal.webp" alt="Mockup editorial horizontal de Porta" width="1200" height="805" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-04.webp" alt="Fotografía editorial de Porta" width="1200" height="543" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-03.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1161" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
-                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-08.webp" alt="Fotografía editorial de Porta" width="926" height="1296" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                     <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-02.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1488" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-05.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-08.webp" alt="Fotografía editorial de Porta" width="926" height="1296" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/icono-barco.webp" alt="Icono del barco de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-02.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-03.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1161" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                     <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/mook-vertical.webp" alt="Mockup editorial vertical de Porta" width="1200" height="1607" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-01.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-10.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1607" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/monograma.webp" alt="Monograma de Porta" width="1200" height="1064" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-04.webp" alt="Fotografía editorial de Porta" width="1200" height="543" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/mook-coleccion.webp" alt="Colección editorial de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-05.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="559" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                     <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-02.webp" alt="Fotografía editorial de Porta" width="1200" height="803" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-05.webp" alt="Fotografía editorial de Porta" width="1200" height="675" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/interior-08.webp" alt="Doble página interior de Porta" width="1200" height="896" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/slipcase.webp" alt="Estuche de Porta" width="1200" height="1200" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/logo.webp" alt="Logotipo de Porta" width="1200" height="411" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-06.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="1693" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/foto-07.webp" alt="Fotografía editorial de Porta" width="1200" height="900" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/ilustracion-08.webp" alt="Ilustración a&nbsp;acuarela de Porta" width="1200" height="967" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
+                    <figure class="pm-galeria-item"><button type="button" data-zoom aria-label="Ampliar imagen" class="block w-full h-full cursor-zoom-in"><img src="assets/images/galeria/logo-descriptor.webp" alt="Logotipo de Porta con descriptor Cuadernos de&nbsp;Identidad Baionesa" width="1200" height="400" class="w-full h-full object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button></figure>
                 </div>
             </section>
 
@@ -571,8 +578,8 @@
         });
 
 
-        // Galería del mook: mosaico en columnas (cada pieza a la columna más corta,
-        // mezclando series para que no caigan juntas) y entrada escalonada al verla
+        // Galería del mook: mosaico en columnas (cada pieza, en el orden del HTML, a la columna
+        // más corta; el orden ya está pensado para mezclar series y cuadrar el final) y entrada escalonada
         (function () {
             const grid = document.getElementById('pm-galeria');
             if (!grid) return;
@@ -585,35 +592,18 @@
                 const columns = width < 640 ? 2 : 3;
                 const colWidth = (width - GAP * (columns - 1)) / columns;
                 const colHeights = new Array(columns).fill(0);
-                const pending = items.map(function (item) {
+                items.forEach(function (item) {
                     const img = item.querySelector('img');
                     const w = parseFloat(img.getAttribute('width')) || 1;
-                    const h = parseFloat(img.getAttribute('height')) || 1;
-                    const cat = (img.getAttribute('src').split('/').pop().match(/^[a-z]+/) || [''])[0];
-                    return { item: item, h: colWidth * h / w, cat: cat };
-                });
-                const recent = [];
-                while (pending.length) {
+                    const h = colWidth * (parseFloat(img.getAttribute('height')) || 1) / w;
                     let col = 0;
                     for (let i = 1; i < columns; i++) if (colHeights[i] < colHeights[col]) col = i;
-                    let second = Infinity;
-                    for (let j = 0; j < columns; j++) if (j !== col && colHeights[j] < second) second = colHeights[j];
-                    const room = second - colHeights[col];
-                    let best = -1, bestScore = Infinity, any = 0, anyScore = Infinity;
-                    for (let k = 0; k < Math.min(12, pending.length); k++) {
-                        const score = Math.abs(pending[k].h + GAP - room);
-                        if (score < anyScore) { anyScore = score; any = k; }
-                        if (recent.indexOf(pending[k].cat) === -1 && score < bestScore) { bestScore = score; best = k; }
-                    }
-                    const e = pending.splice(best === -1 ? any : best, 1)[0];
-                    e.item.style.width = colWidth + 'px';
-                    e.item.style.height = e.h + 'px';
-                    e.item.style.left = col * (colWidth + GAP) + 'px';
-                    e.item.style.top = colHeights[col] + 'px';
-                    colHeights[col] += e.h + GAP;
-                    recent.push(e.cat);
-                    if (recent.length > columns + 2) recent.shift();
-                }
+                    item.style.width = colWidth + 'px';
+                    item.style.height = h + 'px';
+                    item.style.left = col * (colWidth + GAP) + 'px';
+                    item.style.top = colHeights[col] + 'px';
+                    colHeights[col] += h + GAP;
+                });
                 grid.style.height = Math.max.apply(null, colHeights) - GAP + 'px';
             }
             layout();
