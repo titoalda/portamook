@@ -4,7 +4,7 @@
     <loc>https://portamook.com/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://portamook.com/"/>
     <xhtml:link rel="alternate" hreflang="gl" href="https://portamook.com/gl/"/>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,18 +16,18 @@
     <loc>https://portamook.com/gl/</loc>
     <xhtml:link rel="alternate" hreflang="es" href="https://portamook.com/"/>
     <xhtml:link rel="alternate" hreflang="gl" href="https://portamook.com/gl/"/>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://portamook.com/privacidad.html</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://portamook.com/aviso-legal.html</loc>
-    <lastmod>2026-11-09</lastmod>
+    <lastmod>2026-11-10</lastmod>
   </url>
 </urlset>
