@@ -238,6 +238,14 @@
         #menu-movil:not([hidden]) { animation: menu-entra 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
         @keyframes menu-entra { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
+        /* «Qué encontrarás dentro»: secciones plegadas; se abren al pulsar */
+        .pm-seccion summary::-webkit-details-marker { display: none; }
+        .pm-seccion .pm-mas { transition: transform 0.3s ease; }
+        .pm-seccion[open] .pm-mas { transform: rotate(45deg); }
+        .pm-seccion summary:hover h3 { color: #8a6a1f; }
+        .pm-seccion[open] > p { animation: seccion-abre 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        @keyframes seccion-abre { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
         /* Respeta a quien prefiere menos movimiento */
         @media (prefers-reduced-motion: reduce) {
             .fade-in-up, .slow-transition { transition: none !important; }
@@ -245,6 +253,8 @@
             .pm-galeria.is-js .pm-galeria-item { opacity: 1; transform: none; transition: none; }
             #menu-boton path { transition: none; }
             #menu-movil:not([hidden]) { animation: none; }
+            .pm-seccion .pm-mas { transition: none; }
+            .pm-seccion[open] > p { animation: none; }
             html { scroll-behavior: auto !important; }
         }
     </style>
@@ -335,31 +345,49 @@
             <section id="contenido-libro" class="mb-32 observe-me fade-in-up">
                 <h2 class="font-spartan text-xl text-azul-atlantico text-center mb-6 uppercase tracking-widest">Que&nbsp;atoparás dentro de&nbsp;PORTA</h2>
                 <p class="max-w-2xl mx-auto text-center text-gray-600 font-light leading-relaxed text-lg mb-12">Un&nbsp;percorrido pola historia, os&nbsp;mitos e&nbsp;o&nbsp;patrimonio monumental da&nbsp;Real Vila de&nbsp;Baiona (Pontevedra, Galicia), con&nbsp;ilustración, cartografía e&nbsp;fotografía de&nbsp;campo propias.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <article class="bg-white border border-gray-200 p-8">
-                        <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Narrativa Histórica</h3>
-                        <p class="text-gray-600 font-light leading-relaxed">Da&nbsp;Carta Puebla de&nbsp;Afonso IX (7 de&nbsp;maio de&nbsp;1201), que&nbsp;converteu Baiona en&nbsp;vila de&nbsp;reguengo, á&nbsp;arribada da&nbsp;Pinta o&nbsp;1 de&nbsp;marzo de&nbsp;1493, primeira nova do&nbsp;Novo Mundo en&nbsp;chegar a&nbsp;Europa, e&nbsp;o&nbsp;cerco de&nbsp;Francis Drake en&nbsp;1585.</p>
-                    </article>
-                    <article class="bg-white border border-gray-200 p-8">
-                        <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Ensaio Visual</h3>
-                        <p class="text-gray-600 font-light leading-relaxed">Mar Aberto, o&nbsp;camiño da&nbsp;lenda e&nbsp;os&nbsp;petróglifos do&nbsp;Outeiro dos&nbsp;Lameiros, en&nbsp;Baíña: fotografía de&nbsp;campo e&nbsp;textos breves para&nbsp;mirar a&nbsp;modo.</p>
-                    </article>
-                    <article class="bg-white border border-gray-200 p-8">
-                        <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Patrimonio Inmaterial</h3>
-                        <p class="text-gray-600 font-light leading-relaxed">Mitos e&nbsp;serea do&nbsp;imaxinario oral baionés, ritos e&nbsp;lendas da&nbsp;terra, versos do&nbsp;mar e&nbsp;a&nbsp;mesa do&nbsp;Atlántico: oficio e&nbsp;sabor da&nbsp;vila.</p>
-                    </article>
-                    <article class="bg-white border border-gray-200 p-8">
-                        <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Arquivo Visual</h3>
-                        <p class="text-gray-600 font-light leading-relaxed">Postais e&nbsp;fotografías históricas da&nbsp;Biblioteca de&nbsp;Galicia: a&nbsp;rúa Misericordia, a&nbsp;praza da&nbsp;Erizana, a&nbsp;porta da&nbsp;vila e&nbsp;a&nbsp;ribeira do&nbsp;peixe.</p>
-                    </article>
-                    <article class="bg-white border border-gray-200 p-8">
-                        <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Catálogo Monumental</h3>
-                        <p class="text-gray-600 font-light leading-relaxed">A&nbsp;Fortaleza de&nbsp;Monterreal, o&nbsp;cruceiro da&nbsp;Santísima Trinidade, Santa Liberata, o&nbsp;trazo rexionalista e&nbsp;a&nbsp;Virxe da&nbsp;Rocha, cun&nbsp;mapa ilustrado da&nbsp;baía.</p>
-                    </article>
-                    <article class="bg-white border border-gray-200 p-8">
-                        <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase mb-4">Glosario de&nbsp;Identidade</h3>
-                        <p class="text-gray-600 font-light leading-relaxed">Un&nbsp;índice de&nbsp;termos galegos e&nbsp;mariñeiros, como&nbsp;Erizana, foral, arribada, ronsel, peirao ou&nbsp;gamela, que&nbsp;se&nbsp;destacan no&nbsp;texto cunha nota de&nbsp;lectura.</p>
-                    </article>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+                    <details class="pm-seccion bg-white border border-gray-200">
+                        <summary class="flex items-center justify-between gap-4 p-6 md:p-8 cursor-pointer list-none">
+                            <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase">Narrativa Histórica</h3>
+                            <svg class="pm-mas w-4 h-4 shrink-0 text-arena-oscuro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                        </summary>
+                        <p class="px-6 md:px-8 pb-6 md:pb-8 -mt-2 text-gray-600 font-light leading-relaxed">Da&nbsp;Carta Puebla de&nbsp;Afonso IX (7 de&nbsp;maio de&nbsp;1201), que&nbsp;converteu Baiona en&nbsp;vila de&nbsp;reguengo, á&nbsp;arribada da&nbsp;Pinta o&nbsp;1 de&nbsp;marzo de&nbsp;1493, primeira nova do&nbsp;Novo Mundo en&nbsp;chegar a&nbsp;Europa, e&nbsp;o&nbsp;cerco de&nbsp;Francis Drake en&nbsp;1585.</p>
+                    </details>
+                    <details class="pm-seccion bg-white border border-gray-200">
+                        <summary class="flex items-center justify-between gap-4 p-6 md:p-8 cursor-pointer list-none">
+                            <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase">Ensaio Visual</h3>
+                            <svg class="pm-mas w-4 h-4 shrink-0 text-arena-oscuro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                        </summary>
+                        <p class="px-6 md:px-8 pb-6 md:pb-8 -mt-2 text-gray-600 font-light leading-relaxed">Mar Aberto, o&nbsp;camiño da&nbsp;lenda e&nbsp;os&nbsp;petróglifos do&nbsp;Outeiro dos&nbsp;Lameiros, en&nbsp;Baíña: fotografía de&nbsp;campo e&nbsp;textos breves para&nbsp;mirar a&nbsp;modo.</p>
+                    </details>
+                    <details class="pm-seccion bg-white border border-gray-200">
+                        <summary class="flex items-center justify-between gap-4 p-6 md:p-8 cursor-pointer list-none">
+                            <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase">Patrimonio Inmaterial</h3>
+                            <svg class="pm-mas w-4 h-4 shrink-0 text-arena-oscuro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                        </summary>
+                        <p class="px-6 md:px-8 pb-6 md:pb-8 -mt-2 text-gray-600 font-light leading-relaxed">Mitos e&nbsp;serea do&nbsp;imaxinario oral baionés, ritos e&nbsp;lendas da&nbsp;terra, versos do&nbsp;mar e&nbsp;a&nbsp;mesa do&nbsp;Atlántico: oficio e&nbsp;sabor da&nbsp;vila.</p>
+                    </details>
+                    <details class="pm-seccion bg-white border border-gray-200">
+                        <summary class="flex items-center justify-between gap-4 p-6 md:p-8 cursor-pointer list-none">
+                            <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase">Arquivo Visual</h3>
+                            <svg class="pm-mas w-4 h-4 shrink-0 text-arena-oscuro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                        </summary>
+                        <p class="px-6 md:px-8 pb-6 md:pb-8 -mt-2 text-gray-600 font-light leading-relaxed">Postais e&nbsp;fotografías históricas da&nbsp;Biblioteca de&nbsp;Galicia: a&nbsp;rúa Misericordia, a&nbsp;praza da&nbsp;Erizana, a&nbsp;porta da&nbsp;vila e&nbsp;a&nbsp;ribeira do&nbsp;peixe.</p>
+                    </details>
+                    <details class="pm-seccion bg-white border border-gray-200">
+                        <summary class="flex items-center justify-between gap-4 p-6 md:p-8 cursor-pointer list-none">
+                            <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase">Catálogo Monumental</h3>
+                            <svg class="pm-mas w-4 h-4 shrink-0 text-arena-oscuro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                        </summary>
+                        <p class="px-6 md:px-8 pb-6 md:pb-8 -mt-2 text-gray-600 font-light leading-relaxed">A&nbsp;Fortaleza de&nbsp;Monterreal, o&nbsp;cruceiro da&nbsp;Santísima Trinidade, Santa Liberata, o&nbsp;trazo rexionalista e&nbsp;a&nbsp;Virxe da&nbsp;Rocha, cun&nbsp;mapa ilustrado da&nbsp;baía.</p>
+                    </details>
+                    <details class="pm-seccion bg-white border border-gray-200">
+                        <summary class="flex items-center justify-between gap-4 p-6 md:p-8 cursor-pointer list-none">
+                            <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico uppercase">Glosario de&nbsp;Identidade</h3>
+                            <svg class="pm-mas w-4 h-4 shrink-0 text-arena-oscuro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+                        </summary>
+                        <p class="px-6 md:px-8 pb-6 md:pb-8 -mt-2 text-gray-600 font-light leading-relaxed">Un&nbsp;índice de&nbsp;termos galegos e&nbsp;mariñeiros, como&nbsp;Erizana, foral, arribada, ronsel, peirao ou&nbsp;gamela, que&nbsp;se&nbsp;destacan no&nbsp;texto cunha nota de&nbsp;lectura.</p>
+                    </details>
                 </div>
                 <p class="max-w-2xl mx-auto text-center text-granito-texto font-light leading-relaxed mt-12">PORTA Nº&nbsp;1 péchase con&nbsp;créditos visuais e&nbsp;bibliografía. Non&nbsp;é unha&nbsp;guía turística: é unha&nbsp;maneira de&nbsp;mirar Baiona.</p>
             </section>
