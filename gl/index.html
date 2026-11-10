@@ -63,6 +63,7 @@
                 "@id": "https://portamook.com/#autora",
                 "name": "Aldara Álvarez González",
                 "jobTitle": "Deseñadora editorial e curadora visual",
+                "url": "https://aldaraalvarez.es",
                 "sameAs": ["https://aldaraalvarez.es"]
             },
             {
@@ -137,7 +138,7 @@
                         "name": "Quen fixo PORTA?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Aldara Álvarez González, deseñadora editorial e curadora visual, asina a edición e a dirección de arte, con ilustración, cartografía e fotografía de campo propias."
+                            "text": "Aldara Álvarez González, deseñadora editorial e curadora visual, asina a edición e a dirección de arte, con ilustración, cartografía e fotografía de campo propias. O seu portfolio está en aldaraalvarez.es."
                         }
                     }
                 ]
@@ -162,33 +163,28 @@
     <style>
         body {
             background-color: #faf9f6;
+            background-image: url("../assets/images/paper-noise.png");
             color: #1a202c;
         }
         
         /* Animaciones para la entrada de elementos */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transform: translateY(16px);
+            will-change: opacity, transform;
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         
         .fade-in-up.visible {
             opacity: 1;
             transform: translateY(0);
+            will-change: auto;
         }
 
         .slow-transition {
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Textura sutil emulando el papel impreso */
-        .paper-texture {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            transition-property: color, background-color, border-color, opacity, filter;
+            transition-duration: 0.6s;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         /* Estilo para los inputs del formulario de compra */
@@ -232,9 +228,7 @@
 
     <a href="#contenido" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-azul-atlantico focus:px-4 focus:py-2 font-spartan text-xs tracking-widest uppercase">Saltar ao contido</a>
 
-    <div class="paper-texture"></div>
-
-    <nav aria-label="Principal" class="fixed w-full top-0 bg-papel/80 backdrop-blur-md z-40 border-b border-gray-200">
+    <nav aria-label="Principal" class="fixed w-full top-0 bg-papel/95 z-40 border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
             <div>
                 <a href="./" aria-label="PORTA, inicio"><img src="../assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" class="h-8 w-auto"></a>
@@ -328,18 +322,18 @@
             <section class="mb-32 observe-me fade-in-up">
                 <h2 class="font-spartan text-xs tracking-widest text-granito-texto uppercase mb-8 text-center">Algunhas páxinas do volume</h2>
                 <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-interior-01.webp" alt="Dobre páxina interior de Porta: mapa ilustrado da baía de Baiona" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
-                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-foto-01.webp" alt="Fotografía editorial de Porta: Fortaleza de Monterreal" width="900" height="602" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
-                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-ilustracion-02.webp" alt="Ilustración a acuarela de Porta" width="900" height="1116" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
-                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-editorial-03.webp" alt="Maquetación editorial de Porta" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
-                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-interior-05.webp" alt="Dobre páxina interior de Porta: monumento Encontro entre Dous Mundos" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
-                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-foto-06.webp" alt="Fotografía editorial de Porta: petróglifos do Val Miñor" width="900" height="747" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-interior-01.webp" alt="Dobre páxina interior de Porta: mapa ilustrado da baía de Baiona" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-foto-01.webp" alt="Fotografía editorial de Porta: Fortaleza de Monterreal" width="900" height="602" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-ilustracion-02.webp" alt="Ilustración a acuarela de Porta" width="900" height="1116" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-editorial-03.webp" alt="Maquetación editorial de Porta" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-interior-05.webp" alt="Dobre páxina interior de Porta: monumento Encontro entre Dous Mundos" width="900" height="672" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button>
+                    <button type="button" data-zoom aria-label="Ampliar imaxe" class="block w-full cursor-zoom-in"><img src="../assets/images/porta-foto-06.webp" alt="Fotografía editorial de Porta: petróglifos do Val Miñor" width="900" height="747" class="w-full aspect-[4/3] object-cover hover:opacity-90 slow-transition" loading="lazy" decoding="async"></button>
                 </div>
             </section>
 
             <section id="autora" class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mb-32">
                 <div class="md:col-span-5 observe-me fade-in-up">
-                    <img src="../assets/images/author2.webp" alt="Aldara Álvarez González" width="900" height="900" loading="lazy" class="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 slow-transition duration-1000">
+                    <img src="../assets/images/author2.webp" alt="Aldara Álvarez González" width="900" height="900" loading="lazy" decoding="async" class="w-full object-cover aspect-[4/5] grayscale hover:grayscale-0 slow-transition duration-1000">
                 </div>
                 <div class="md:col-span-7 observe-me fade-in-up delay-200 lg:pl-12">
                     <p class="font-spartan text-xs tracking-widest text-granito-texto mb-4 uppercase">Sobre a autora</p>
@@ -352,6 +346,9 @@
                         </p>
                         <p>
                             Con <strong>PORTA</strong>, Aldara propón un manifesto contra a inmediatez dixital. O proxecto nace da necesidade imperiosa de documentar a herdanza inmaterial e pétrea da súa terra, Baiona, afastándose dos ritmos de consumo turístico masivo para abrazar a contemplación.
+                        </p>
+                        <p>
+                            O seu portfolio, con outros proxectos de deseño editorial e identidade de marca, está en <a href="https://aldaraalvarez.es" rel="author noopener" target="_blank" class="underline hover:text-azul-atlantico slow-transition">aldaraalvarez.es</a>.
                         </p>
                         <p class="italic text-granito-texto">
                             "Nomear o territorio coas palabras que o esculpiron é o primeiro acto de soberanía cultural."
@@ -466,7 +463,7 @@
                     </details>
                     <details class="border-b border-gray-200 py-5">
                         <summary class="cursor-pointer font-spartan text-sm tracking-widest text-azul-atlantico">Quen fixo PORTA?</summary>
-                        <p class="mt-4 text-gray-600 font-light leading-relaxed">Aldara Álvarez González, deseñadora editorial e&nbsp;curadora visual, asina a&nbsp;edición e&nbsp;a&nbsp;dirección de&nbsp;arte, con&nbsp;ilustración, cartografía e&nbsp;fotografía de&nbsp;campo propias.</p>
+                        <p class="mt-4 text-gray-600 font-light leading-relaxed">Aldara Álvarez González, deseñadora editorial e&nbsp;curadora visual, asina a&nbsp;edición e&nbsp;a&nbsp;dirección de&nbsp;arte, con&nbsp;ilustración, cartografía e&nbsp;fotografía de&nbsp;campo propias. O seu portfolio está en <a href="https://aldaraalvarez.es" rel="author noopener" target="_blank" class="underline">aldaraalvarez.es</a>.</p>
                     </details>
                 </div>
             </section>
@@ -477,7 +474,7 @@
     <footer class="bg-white border-t border-gray-200 mt-auto py-12">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
             <div>
-                <img src="../assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" loading="lazy" class="h-7 w-auto mb-2 mx-auto md:mx-0">
+                <img src="../assets/images/porta-logotipo.webp" alt="PORTA" width="450" height="154" loading="lazy" decoding="async" class="h-7 w-auto mb-2 mx-auto md:mx-0">
                 <div class="font-lato text-xs text-granito-texto uppercase tracking-widest">
                     Cadernos de Identidade Baionesa
                 </div>
@@ -491,7 +488,7 @@
             </div>
 
             <div class="font-lato text-xs text-gray-500 font-light">
-                © 2026 Aldara Álvarez González.<br>Todos os dereitos reservados.
+                © 2026 <a href="https://aldaraalvarez.es" target="_blank" rel="noopener" class="underline hover:text-azul-atlantico">Aldara Álvarez González</a>.<br>Todos os dereitos reservados.
             </div>
         </div>
     </footer>
@@ -514,8 +511,8 @@
         document.addEventListener("DOMContentLoaded", function() {
             const observerOptions = {
                 root: null,
-                rootMargin: '0px',
-                threshold: 0.15
+                rootMargin: '0px 0px -6% 0px',
+                threshold: 0.04
             };
 
             const observer = new IntersectionObserver((entries, observer) => {
