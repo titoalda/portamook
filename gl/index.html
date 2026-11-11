@@ -210,6 +210,46 @@
             outline-offset: 3px;
         }
 
+        /* Reserva: estado de envio y confirmacion */
+        :root { --pm-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+        #reserva-paso1 { transition: opacity 0.45s var(--pm-ease), transform 0.45s var(--pm-ease); }
+        #reserva-paso1.is-out { opacity: 0; transform: translateY(-10px); }
+        #pedido .editorial-input { transition: border-color 0.3s ease, opacity 0.4s var(--pm-ease); }
+        #pedido.is-sending .editorial-input { opacity: 0.5; }
+        #pedido button[type="submit"] { position: relative; overflow: hidden; }
+        #pedido.is-sending button[type="submit"]::after {
+            content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 40%;
+            background: #d7af5f; animation: pm-barra 1.1s linear infinite;
+        }
+        @keyframes pm-barra { from { transform: translateX(-100%); } to { transform: translateX(250%); } }
+        #pedido.is-error { animation: pm-tiembla 0.4s var(--pm-ease); }
+        @keyframes pm-tiembla { 0%, 100% { transform: none; } 25% { transform: translateX(-6px); } 60% { transform: translateX(5px); } 85% { transform: translateX(-2px); } }
+
+        .pm-panel-ok { display: flex; flex-direction: column; justify-content: center; }
+        .pm-ok { text-align: center; padding: 1.5rem 0 0.5rem; }
+        .pm-sello { position: relative; width: 88px; height: 88px; margin: 0 auto 1.75rem; color: #06478d; }
+        .pm-sello svg { display: block; overflow: visible; }
+        .pm-sello circle, .pm-sello path { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+        .pm-sello circle { stroke: #06478d; stroke-width: 1.5; }
+        .pm-sello path { stroke: #d7af5f; stroke-width: 2.5; }
+        .pm-sello::after { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1px solid #d7af5f; opacity: 0; }
+        .pm-ok.is-in .pm-sello circle { animation: pm-traza 0.9s var(--pm-ease) 0.1s forwards; }
+        .pm-ok.is-in .pm-sello path { animation: pm-traza 0.5s var(--pm-ease) 0.8s forwards; }
+        .pm-ok.is-in .pm-sello::after { animation: pm-onda 1.3s var(--pm-ease) 1.05s both; }
+        .pm-rise { opacity: 0; transform: translateY(10px); }
+        .pm-ok.is-in .pm-rise { animation: pm-sube 0.7s var(--pm-ease) var(--d, 0s) forwards; }
+        #reserva-ok-titulo:focus { outline: none; }
+        @keyframes pm-traza { to { stroke-dashoffset: 0; } }
+        @keyframes pm-onda { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.55); opacity: 0; } }
+        @keyframes pm-sube { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+        @media (prefers-reduced-motion: reduce) {
+            #reserva-paso1, #pedido .editorial-input { transition: none; }
+            #pedido.is-sending button[type="submit"]::after, #pedido.is-error { animation: none; }
+            .pm-sello circle, .pm-sello path { stroke-dashoffset: 0; animation: none !important; }
+            .pm-sello::after { display: none; }
+            .pm-rise { opacity: 1; transform: none; animation: none !important; }
+        }
+
         /* Fondo del visor de imágenes */
         dialog#visor::backdrop { background: rgba(10, 20, 35, 0.9); }
 
@@ -502,6 +542,7 @@
 
                     <!-- Formulario de pedido editorial -->
                     <div class="bg-papel p-8">
+                        <div id="reserva-paso1">
                         <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico mb-8 uppercase">Reserva o teu exemplar</h3>
                         <form id="pedido" class="space-y-6">
                             <div>
@@ -529,20 +570,26 @@
                             <!-- Trampa para bots: las personas no lo ven -->
                             <input type="checkbox" name="botcheck" id="botcheck" tabindex="-1" autocomplete="off" style="display:none">
 
-                            <button type="submit" class="w-full bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 mt-8 hover:bg-azul-atlantico/90 slow-transition uppercase text-center disabled:opacity-60 disabled:cursor-wait">
+                            <button type="submit" class="w-full bg-azul-atlantico text-white font-spartan text-xs tracking-widest px-8 py-4 mt-8 hover:bg-azul-atlantico/90 slow-transition uppercase text-center disabled:opacity-60 disabled:cursor-wait" data-enviando="Enviando…">
                                 Reservar o meu exemplar
                             </button>
 
                             <p class="text-xs text-granito-texto font-light leading-relaxed text-center">
                                 Confirmarémosche por correo que recibimos a túa solicitude de reserva e poñerémonos en contacto contigo para acordar o método de pagamento e o envío do exemplar.</p>
-
-                            <p id="success-msg" role="status" class="hidden text-green-700 text-sm mt-4 text-center font-light">
-                                Grazas. Recibimos a túa solicitude de reserva. Poñerémonos en contacto contigo para acordar o método de pagamento e o envío do exemplar.
-                            </p>
                             <p id="error-msg" role="alert" class="hidden text-red-700 text-sm mt-4 text-center font-light">
                                 Non se puido enviar a reserva. Téntao de novo ou escríbenos a <a href="mailto:info@portamook.com" class="underline">info@portamook.com</a>.
                             </p>
                         </form>
+                        </div>
+                        <div id="reserva-ok" class="pm-ok" role="status" aria-live="polite" hidden>
+                            <div class="pm-sello" aria-hidden="true">
+                                <svg viewBox="0 0 88 88" width="88" height="88"><circle cx="44" cy="44" r="40" pathLength="1"/><path d="M28 45 l12 12 l22 -26" pathLength="1"/></svg>
+                            </div>
+                            <h3 id="reserva-ok-titulo" tabindex="-1" class="pm-rise font-spartan text-2xl text-azul-atlantico font-semibold mb-4" style="--d:0.9s">Reserva anotada</h3>
+                            <p class="pm-rise text-gray-600 font-light leading-relaxed" style="--d:1.05s"><span id="reserva-ok-saludo" class="text-azul-atlantico font-normal" data-saludo="Grazas, {nombre}."></span> Recibimos a túa solicitude de reserva. Poñerémonos en contacto contigo para acordar o método de pagamento e o envío do exemplar.</p>
+                            <p id="reserva-ok-ficha" class="pm-rise font-spartan text-[0.65rem] tracking-widest uppercase text-arena-oscuro mt-6" style="--d:1.2s" data-uno="PORTA Nº 1 · 1 exemplar" data-varios="PORTA Nº 1 · {n} exemplares"></p>
+                            <button type="button" id="reserva-otra" class="pm-rise mt-8 font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto underline hover:text-azul-atlantico slow-transition" style="--d:1.35s">Facer outra reserva</button>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -756,48 +803,103 @@
         // (la clave de acceso es pública por diseño; solo permite enviar formularios)
         const WEB3FORMS_ACCESS_KEY = "9730a2ad-8c3b-43d9-b68c-ad611768d778";
 
-        document.getElementById('pedido').addEventListener('submit', async function (event) {
-            event.preventDefault();
-            const form = event.target;
-            const btn = form.querySelector('button[type="submit"]');
-            const ok = document.getElementById('success-msg');
+        (function () {
+            const form = document.getElementById('pedido');
+            const paso1 = document.getElementById('reserva-paso1');
+            const panel = paso1.parentElement;
+            const ok = document.getElementById('reserva-ok');
+            const titulo = document.getElementById('reserva-ok-titulo');
+            const saludo = document.getElementById('reserva-ok-saludo');
+            const ficha = document.getElementById('reserva-ok-ficha');
+            const otra = document.getElementById('reserva-otra');
             const ko = document.getElementById('error-msg');
-            const textoBoton = btn.textContent;
+            const btn = form.querySelector('button[type="submit"]');
+            const textoBoton = btn.textContent.trim();
+            const reducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const espera = (ms) => new Promise((r) => setTimeout(r, reducido ? 0 : ms));
 
-            ok.classList.add('hidden');
-            ko.classList.add('hidden');
-            btn.disabled = true;
-            btn.textContent = "Enviando...";
+            async function mostrarConfirmacion(nombre, ejemplares) {
+                // Se fija el alto del panel para que la página no pegue un salto al cambiar de paso
+                panel.style.minHeight = panel.offsetHeight + 'px';
+                paso1.classList.add('is-out');
+                await espera(450);
+                paso1.hidden = true;
+                panel.classList.add('pm-panel-ok');
+                saludo.textContent = saludo.dataset.saludo.replace('{nombre}', nombre.split(/\s+/)[0]);
+                ficha.textContent = (ejemplares === 1 ? ficha.dataset.uno : ficha.dataset.varios).replace('{n}', ejemplares);
+                ok.hidden = false;
+                void ok.offsetWidth;
+                ok.classList.add('is-in');
+                titulo.focus({ preventScroll: true });
+            }
 
-            const datos = {
-                access_key: WEB3FORMS_ACCESS_KEY,
-                subject: "Nova solicitude de reserva de PORTA (portamook.com)",
-                from_name: "Web PORTA",
-                nombre: form.nombre.value.trim(),
-                email: form.email.value.trim(),
-                localidad: form.localidad.value.trim(),
-                ejemplares: form.ejemplares.value,
-                privacidad_aceptada: form.privacidad.checked ? "sí" : "no",
-                botcheck: form.botcheck.checked
-            };
+            form.addEventListener('submit', async function (event) {
+                event.preventDefault();
+                if (btn.disabled) return;
 
-            try {
-                const respuesta = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify(datos)
-                });
-                const resultado = await respuesta.json();
-                if (!respuesta.ok || !resultado.success) throw new Error(resultado.message || 'Error de envío');
+                ko.classList.add('hidden');
+                form.classList.remove('is-error');
+                btn.disabled = true;
+                btn.textContent = btn.dataset.enviando;
+                form.classList.add('is-sending');
+                const inicio = performance.now();
+
+                const datos = {
+                    access_key: WEB3FORMS_ACCESS_KEY,
+                    subject: "Nueva solicitud de reserva de PORTA (portamook.com)",
+                    from_name: "Web PORTA",
+                    nombre: form.nombre.value.trim(),
+                    email: form.email.value.trim(),
+                    localidad: form.localidad.value.trim(),
+                    ejemplares: form.ejemplares.value,
+                    privacidad_aceptada: form.privacidad.checked ? "sí" : "no",
+                    botcheck: form.botcheck.checked
+                };
+
+                let exito = false;
+                try {
+                    const respuesta = await fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                        body: JSON.stringify(datos)
+                    });
+                    const resultado = await respuesta.json();
+                    exito = respuesta.ok && resultado.success;
+                } catch (error) {
+                    exito = false;
+                }
+
+                // La barra de envío se ve al menos un segundo, aunque la respuesta sea instantánea
+                await espera(Math.max(0, 1000 - (performance.now() - inicio)));
+                form.classList.remove('is-sending');
+
+                if (!exito) {
+                    ko.classList.remove('hidden');
+                    btn.disabled = false;
+                    btn.textContent = textoBoton;
+                    void form.offsetWidth;
+                    form.classList.add('is-error');
+                    return;
+                }
+
                 form.reset();
-                ok.classList.remove('hidden');
-                btn.textContent = "Reserva anotada";
-            } catch (error) {
-                ko.classList.remove('hidden');
+                mostrarConfirmacion(datos.nombre, parseInt(datos.ejemplares, 10) || 1);
+            });
+
+            // Volver al formulario para hacer otra reserva
+            otra.addEventListener('click', function () {
+                ok.classList.remove('is-in');
+                ok.hidden = true;
+                paso1.hidden = false;
+                void paso1.offsetWidth;
+                paso1.classList.remove('is-out');
                 btn.disabled = false;
                 btn.textContent = textoBoton;
-            }
-        });
+                panel.style.minHeight = '';
+                panel.classList.remove('pm-panel-ok');
+                document.getElementById('f-nombre').focus({ preventScroll: true });
+            });
+        })();
     </script>
     <script>
     (function(d,l){var u=new URLSearchParams(l.search),q=function(k){return encodeURIComponent(u.get(k)||'')};
