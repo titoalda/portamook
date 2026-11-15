@@ -24,7 +24,8 @@
 
 ## Páginas
 
-- [Inicio](https://portamook.com/): presentación del volumen, la edición, la autora y el formulario de reserva.
+- [Inicio](https://portamook.com/): presentación del volumen, la edición y el formulario de reserva.
+- [Sobre la autora](https://portamook.com/autora): quién es Aldara Álvarez González y cómo nace el proyecto (también en gallego: https://portamook.com/gl/autora).
 - [Versión en gallego](https://portamook.com/gl/): la misma página en gallego (el libro está en español, con títulos de imagen y léxico en gallego).
 - [Política de privacidad](https://portamook.com/privacidad.html): qué datos se recogen al reservar, para qué y con qué proveedores.
 - [Aviso legal](https://portamook.com/aviso-legal.html): titular del sitio, ubicación y condiciones de uso.

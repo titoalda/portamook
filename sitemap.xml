@@ -21,6 +21,22 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://portamook.com/autora</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portamook.com/autora"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://portamook.com/gl/autora"/>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://portamook.com/gl/autora</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://portamook.com/autora"/>
+    <xhtml:link rel="alternate" hreflang="gl" href="https://portamook.com/gl/autora"/>
+    <lastmod>2026-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://portamook.com/privacidad.html</loc>
     <lastmod>2026-11-10</lastmod>
     <changefreq>yearly</changefreq>
