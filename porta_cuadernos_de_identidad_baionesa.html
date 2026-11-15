@@ -205,10 +205,13 @@
         }
 
         /* Foco visible para quien navega con teclado */
-        a:focus-visible, button:focus-visible, .editorial-input:focus-visible {
+        a:focus-visible, button:focus-visible {
             outline: 2px solid #06478d;
             outline-offset: 3px;
         }
+
+        /* En los campos el foco se marca con el subrayado, sin recuadro que pise la etiqueta */
+        .editorial-input:focus-visible { outline: none; border-bottom-width: 2px; padding-bottom: calc(0.5rem - 1px); }
 
         /* Reserva: estado de envio y confirmacion */
         :root { --pm-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94); }
@@ -519,19 +522,19 @@
                         <h3 class="font-spartan text-sm tracking-widest text-azul-atlantico mb-8 uppercase">Reserva tu ejemplar</h3>
                         <form id="pedido" class="space-y-6">
                             <div>
-                                <label for="f-nombre" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Nombre completo</label>
+                                <label for="f-nombre" class="block mb-2 font-spartan text-[0.8rem] tracking-widest uppercase text-granito-texto">Nombre completo</label>
                                 <input type="text" name="nombre" id="f-nombre" autocomplete="name" placeholder="Nombre completo" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <label for="f-email" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Correo electrónico</label>
+                                <label for="f-email" class="block mb-2 font-spartan text-[0.8rem] tracking-widest uppercase text-granito-texto">Correo electrónico</label>
                                 <input type="email" name="email" id="f-email" autocomplete="email" placeholder="Correo electrónico" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <label for="f-localidad" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Municipio y país</label>
+                                <label for="f-localidad" class="block mb-2 font-spartan text-[0.8rem] tracking-widest uppercase text-granito-texto">Municipio y país</label>
                                 <input type="text" name="localidad" id="f-localidad" autocomplete="address-level2" placeholder="Para calcular el envío" required maxlength="120" class="editorial-input">
                             </div>
                             <div>
-                                <label for="f-ejemplares" class="block font-spartan text-[0.65rem] tracking-widest uppercase text-granito-texto">Cantidad de ejemplares</label>
+                                <label for="f-ejemplares" class="block mb-2 font-spartan text-[0.8rem] tracking-widest uppercase text-granito-texto">Cantidad de ejemplares</label>
                                 <input type="number" name="ejemplares" id="f-ejemplares" inputmode="numeric" min="1" max="10" value="1" required class="editorial-input">
                             </div>
 
